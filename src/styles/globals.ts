@@ -11,6 +11,6 @@ export default createGlobalStyle`
     color: ${props => props.theme.colors.text};
     font: 400 16px Roboto, sans-serif;
     margin: 0;
-    heigth: 100vh;
+    height: 100vh;
   }
 `

@@ -8,7 +8,7 @@ const Home: React.FC = () => {
       <MovieCardStyle>
         <h1>Title</h1>
       </MovieCardStyle>
-      <h2></h2>
+      <h2>Hello Word</h2>
     </main>
   )
 }
