@@ -5,7 +5,7 @@ const Home: React.FC = () => {
   return (
     <main>
       <TraillerCard
-        srcYoutube="https://www.youtube.com/embed/eOrNdBpGMv8"
+        srcYoutube="https://www.youtube.com/embed/eOrNdBpGMv8?autoplay=1&controls=0&amp;start=10"
         youtubeTitle="Marvel's The Avengers- Trailer"
       ></TraillerCard>
     </main>

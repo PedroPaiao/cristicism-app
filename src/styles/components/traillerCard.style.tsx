@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const CardWrapper = styled.div`
   overflow: hidden;
-  padding: 0 0 32px;
+  padding: 0 0 8px;
   margin: 48px auto 0;
   width: 560px;
   font-family: Quicksand, arial, sans-serif;
@@ -11,8 +11,22 @@ export const CardWrapper = styled.div`
   border-radius: 5px;
 `
 
-export const CardHeading = styled.h1`
-  font-size: 24px;
+export const CardHeading = styled.h2`
+  font-size: 20px;
+  padding-right: 10px;
+  align-self: flex-end;
+  text-align: right;
+  width: 88%;
   font-weight: bold;
   text-align: center;
+`
+
+export const StarsWrapping = styled.div`
+  padding-right: 24px;
+  display: flex;
+  justify-content: flex-end;
+  h1 {
+    font-size: 20px;
+    margin: 0 0 1rem 0;
+  }
 `

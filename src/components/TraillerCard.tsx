@@ -1,8 +1,11 @@
 import React, { FunctionComponent } from 'react'
+import { StarsRating } from './stars/StarsRating'
 import {
   CardWrapper,
-  CardHeading
+  CardHeading,
+  StarsWrapping
 } from '../styles/components/traillerCard.style'
+import { Row } from '../styles/components/utils.style'
 
 export interface TraillerCardProps {
   srcYoutube: string
@@ -10,25 +13,53 @@ export interface TraillerCardProps {
 }
 
 export const TraillerCard: FunctionComponent<TraillerCardProps> = ({
-  srcYoutube,
-  youtubeTitle
+  srcYoutube
 }) => {
+  const [rating, setRating] = React.useState(0)
+  const [hoverRating, setHoverRating] = React.useState(0)
+  const onMouseEnter = index => {
+    setHoverRating(index)
+  }
+  const onMouseLeave = () => {
+    setHoverRating(0)
+  }
+  const onSaveRating = index => {
+    setRating(index)
+    // TODO: API call to save on backend
+  }
   return (
-    <CardWrapper>
-      <div
-        dangerouslySetInnerHTML={{
-          __html: `<iframe
+    <>
+      <CardWrapper>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: `<iframe
         width="560"
         height="315"
         src=${srcYoutube}
         title="YouTube video player"
         frameBorder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
       ></iframe>`
-        }}
-      />
-      <CardHeading>{youtubeTitle}</CardHeading>
-    </CardWrapper>
+          }}
+        />
+        <Row>
+          <CardHeading>Sua avaliação:</CardHeading>
+          <StarsWrapping>
+            {[1, 2, 3, 4, 5].map(index => {
+              return (
+                <StarsRating
+                  key={index}
+                  index={index}
+                  rating={rating}
+                  hoverRating={hoverRating}
+                  onMouseEnter={onMouseEnter}
+                  onMouseLeave={onMouseLeave}
+                  onSaveRating={onSaveRating}
+                />
+              )
+            })}
+          </StarsWrapping>
+        </Row>
+      </CardWrapper>
+    </>
   )
 }
