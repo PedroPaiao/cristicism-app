@@ -4,14 +4,14 @@ export const FloatActionButton = styled.button`
   position: absolute;
   bottom: 40px;
   right: 40px;
-  background-color: #f44336;
+  background-color: ${props => props.theme.colors.primary};
   width: 60px;
   height: 60px;
   border-radius: 100%;
-  background: #f44336;
+  background: ${props => props.theme.colors.primary};
   border: none;
   outline: none;
-  color: #fff;
+  color: ${props => props.theme.colors.text};
   font-size: 36px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   transition: 0.3s;

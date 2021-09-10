@@ -15,12 +15,12 @@ export const Backdrop = styled.div`
   height: 100%;
   top: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.3);
+  background: ${props => props.theme.colors.backdrop};
   z-index: 500;
 `
 export const StyledModal = styled.div`
   z-index: 100;
-  background: ${props => props.theme.colors.primary};
+  background: ${props => props.theme.colors.secondary};
   position: relative;
   margin: auto;
   border-radius: 8px;
@@ -32,9 +32,11 @@ export const Header = styled.div`
   padding: 0.3rem;
 `
 export const HeaderText = styled.div`
-  color: #fff;
-  align-self: center;
-  color: lightgray;
+  text-align: center;
+  width: 100%;
+  font-size: 20px;
+  font-weight: bolder;
+  color: ${props => props.theme.colors.text};
 `
 export const CloseButton = styled.button`
   font-size: 0.8rem;
