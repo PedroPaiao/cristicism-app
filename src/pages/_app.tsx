@@ -1,12 +1,12 @@
-import React from 'react'
 import { AppProps } from 'next/app'
+import React from 'react'
 import { ThemeProvider } from 'styled-components'
-
+import { Modal } from '../components/CreateMovieModal'
+import { FloatActionButton } from '../components/FloatActionButton'
+import { MovieCard } from '../components/MovieCard'
+import { useModal } from '../services/useModal'
 import GlobalStyle from '../styles/globals'
 import theme from '../styles/theme'
-import { FloatActionButton } from '../components/FloatActionButton'
-import { Modal } from '../components/CreateMovieModal'
-import { useModal } from '../services/useModal'
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   const { isShown, toggle } = useModal()
@@ -28,6 +28,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
         modalContent={content}
         headerText={'Registre um novo filme'}
       />
+      <MovieCard imageLink={'https://via.placeholder.com/600/92c952'}></MovieCard>
     </ThemeProvider>
   )
 }
