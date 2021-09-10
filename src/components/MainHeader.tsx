@@ -1,6 +1,6 @@
 import React from 'react'
 import { BsSearch } from 'react-icons/bs'
-// import { checkClass } from '../services/checkClass'
+import { checkClass } from '../services/checkClass'
 import {
   Header,
   BoxTitle,
@@ -11,25 +11,23 @@ import {
 } from '../styles/components/header.style'
 
 export default function MainHeader(): JSX.Element {
-  // checkClass()
+  checkClass()
   return (
-    <>
-      <Header className="headerColor">
-        <BoxTitle>
-          <a href="/">
-            <Logo src="/logo.png" alt="CriticismApp Logo" />
-          </a>
-          <a href="/">
-            <Title>CriticismApp</Title>
-          </a>
-        </BoxTitle>
-        <BoxLinks>
-          <a href="#">Filmes</a>
-          <a href="#">Criticas</a>
-          <SearchBar placeholder="Encontre um filme"></SearchBar>
-          <BsSearch />
-        </BoxLinks>
-      </Header>
-    </>
+    <Header>
+      <BoxTitle>
+        <a href="/">
+          <Logo src="/logo.png" alt="CriticismApp Logo" />
+        </a>
+        <a href="/">
+          <Title>CriticismApp</Title>
+        </a>
+      </BoxTitle>
+      <BoxLinks>
+        <a href="#">Filmes</a>
+        <a href="#">Criticas</a>
+        <SearchBar placeholder="Encontre um filme"></SearchBar>
+        <BsSearch />
+      </BoxLinks>
+    </Header>
   )
 }

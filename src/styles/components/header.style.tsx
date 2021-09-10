@@ -18,19 +18,20 @@ export const Header = styled.header`
   &:hover {
     background: rgb(18, 18, 20, 0.85);
   }
-  
+
   a {
-  text-decoration: none;
-  letter-spacing: 0.02rem;
-  font-weight: 600;
-  color: ${props => props.theme.colors.text};
-  &:hover,
-  h1:hover {
-    color: ${props => props.theme.colors.primary};
-    transition: color 0.75s ease;
-    -webkit-transition: color 0.75s ease;
-    -moz-transition: color 0.75s ease;
-    -o-transition: color 0.75s ease;
+    text-decoration: none;
+    letter-spacing: 0.02rem;
+    font-weight: 600;
+    color: ${props => props.theme.colors.text};
+    &:hover,
+    h1:hover {
+      color: ${props => props.theme.colors.primary};
+      transition: color 0.75s ease;
+      -webkit-transition: color 0.75s ease;
+      -moz-transition: color 0.75s ease;
+      -o-transition: color 0.75s ease;
+    }
   }
 `
 

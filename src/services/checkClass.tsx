@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-export const checkClass = () => {
+export const checkClass = (): void => {
   useEffect(() => {
     window.onscroll = () => {
       if (window.scrollY >= 53) {
