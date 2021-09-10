@@ -1,16 +1,17 @@
-import { AppProps } from 'next/app'
 import React from 'react'
+import { AppProps } from 'next/app'
 import { ThemeProvider } from 'styled-components'
-import { Modal } from '../components/CreateMovieModal'
-import { FloatActionButton } from '../components/FloatActionButton'
-import { MovieCard } from '../components/MovieCard'
-import { useModal } from '../services/useModal'
+
+import MainHeader from '../components/MainHeader'
 import GlobalStyle from '../styles/globals'
 import theme from '../styles/theme'
+import { FloatActionButton } from '../components/FloatActionButton'
+import { Modal } from '../components/CreateMovieModal'
+import { useModal } from '../services/useModal'
+import { MovieCard } from '../components/MovieCard'
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   const { isShown, toggle } = useModal()
-
   const content = (
     <React.Fragment>
       Aqui sera implementado um modal para o registro de filmes
@@ -19,6 +20,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
 
   return (
     <ThemeProvider theme={theme}>
+      <MainHeader></MainHeader>
       <Component {...pageProps} />
       <GlobalStyle />
       <FloatActionButton onClick={toggle}>+</FloatActionButton>
@@ -29,6 +31,31 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
         headerText={'Registre um novo filme'}
       />
       <MovieCard imageLink={'https://via.placeholder.com/600/92c952'}></MovieCard>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </ThemeProvider>
   )
 }
