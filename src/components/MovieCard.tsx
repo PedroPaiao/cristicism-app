@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react'
 import {
   StyledMovieCardDiv,
-  StyledMovieCardImg,
+  StyledMovieCardImg
 } from '../styles/components/moviecard.style'
 
-export function MovieCard({imageLink}): JSX.Element {
+interface MovieCardProps {
+  imageLink: string
+  key?: number
+}
+
+export const MovieCard: FunctionComponent<MovieCardProps> = props => {
   return (
     <StyledMovieCardDiv>
-      <StyledMovieCardImg src={imageLink} alt="Test image" />
+      <StyledMovieCardImg src={props.imageLink} alt="Test image" />
     </StyledMovieCardDiv>
   )
 }

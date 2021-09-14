@@ -1,13 +1,12 @@
 import styled from 'styled-components'
 
 export const StyledMovieCardDiv = styled.div`
-    margin: 0%;
-    padding: 0%;
-    width: 100px;
-    height: 150px;
-`;
+  margin-right: 10px;
+  width: 180px;
+  height: 265px;
+`
 
 export const StyledMovieCardImg = styled.img`
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 `

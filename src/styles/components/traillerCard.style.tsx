@@ -22,7 +22,7 @@ export const CardHeading = styled.h2`
 `
 
 export const StarsWrapping = styled.div`
-  padding-right: 24px;
+  padding-left: 120px;
   display: flex;
   justify-content: flex-end;
   h1 {
