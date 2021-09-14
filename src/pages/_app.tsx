@@ -9,6 +9,7 @@ import { FloatActionButton } from '../components/FloatActionButton'
 import { Modal } from '../components/CreateMovieModal'
 import { useModal } from '../services/useModal'
 import { MovieCard } from '../components/MovieCard'
+import { NewCriticismButton } from '../components/NewCriticismButton'
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   const { isShown, toggle } = useModal()
@@ -23,6 +24,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
       <MainHeader></MainHeader>
       <Component {...pageProps} />
       <GlobalStyle />
+      <NewCriticismButton>Adicionar nova crítica</NewCriticismButton>
       <FloatActionButton onClick={toggle}>+</FloatActionButton>
       <Modal
         isShown={isShown}
@@ -30,7 +32,9 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
         modalContent={content}
         headerText={'Registre um novo filme'}
       />
-      <MovieCard imageLink={'https://via.placeholder.com/600/92c952'}></MovieCard>
+      <MovieCard
+        imageLink={'https://via.placeholder.com/600/92c952'}
+      ></MovieCard>
       <br />
       <br />
       <br />
