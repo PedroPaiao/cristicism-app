@@ -1,16 +1,14 @@
 import React from 'react'
-
-import { MovieCardStyle } from '../styles/components/MovieCardStyle'
+import { TraillerCard } from '../components/TraillerCard'
 
 const Home: React.FC = () => {
   return (
     <main>
-      <MovieCardStyle>
-        <h1>Title</h1>
-      </MovieCardStyle>
-      <h2>Hello Word</h2>
+      <TraillerCard
+        srcYoutube="https://www.youtube.com/embed/eOrNdBpGMv8?autoplay=1&controls=0&amp;start=10"
+        youtubeTitle="Marvel's The Avengers- Trailer"
+      ></TraillerCard>
     </main>
   )
 }
-
 export default Home

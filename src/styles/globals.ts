@@ -13,4 +13,7 @@ export default createGlobalStyle`
     margin: 0;
     height: 100vh;
   }
+  main {
+    padding-top: 55px;
+  }
 `
