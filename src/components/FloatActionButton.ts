@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const FloatActionButton = styled.button`
+  z-index: 1;
   position: absolute;
   bottom: 40px;
   right: 40px;
