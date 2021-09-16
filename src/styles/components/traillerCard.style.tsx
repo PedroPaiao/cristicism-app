@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const CardWrapper = styled.div`
   overflow: hidden;
   padding: 0 0 8px;
-  margin: 48px auto 0;
+  margin: 50px auto 0;
   width: 560px;
   font-family: Quicksand, arial, sans-serif;
   box-shadow: 0 0 20px ${props => props.theme.colors.primary},

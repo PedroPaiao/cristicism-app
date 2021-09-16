@@ -1,14 +1,20 @@
 import styled from 'styled-components'
 
+interface StyledMovieCardProps {
+  width?: string
+  height?: string
+}
+
 export const MovieListWrapper = styled.div`
   background-color: ${props => props.theme.colors.secondary};
   padding: 10px 0;
 `
 
-export const StyledMovieCardDiv = styled.div`
-  width: 180px;
-  height: 265px;
+export const StyledMovieCardDiv = styled.div<StyledMovieCardProps>`
+  width: ${props => props.width};
+  height: ${props => props.height};
 
+  /*
   @media (max-width: 1400px) {
     width: 130px;
     height: 180px;
@@ -23,11 +29,11 @@ export const StyledMovieCardDiv = styled.div`
     width: 196px;
     height: 234px;
   }
-
   @media (min-width: 1201px) and (max-width: 1600px) {
     width: 136px;
     height: 200px;
   }
+  */
 `
 
 export const StyledMovieCardImg = styled.img`

@@ -1,13 +1,28 @@
 import React from 'react'
-import { Button } from '../styles/components/utils/button.style'
-import { Textarea } from '../styles/components/utils/textarea.style'
 import { useModal } from '../services/useModal'
 import { Modal } from '../components/CreateMovieModal'
 import { NewCriticismButton } from '../components/NewCriticismButton'
+import { BiUserCircle } from 'react-icons/bi'
+
 import { Row } from '../styles/components/utils.style'
+import { Textarea } from '../styles/components/utils/textarea.style'
+import { Button } from '../styles/components/utils/button.style'
+import {
+  PageSubtitle,
+  PageTitle,
+  UserName,
+  Text
+} from '../styles/components/utils/pagetitles.style'
+import { Wrapper } from '../styles/components/utils/wrapper.style'
+import { Container } from '../styles/components/utils/container.style'
+import { Description } from '../styles/components/utils/description.style'
+
 import { StarsRating } from '../components/stars/StarsRating'
 
+import { TraillerCard } from '../components/TraillerCard'
 import { StarsWrapping } from '../styles/components/traillerCard.style'
+import { getFilms } from '../services/handleMovies'
+import { MovieCard } from '../components/MovieCard'
 
 const Filmes: React.FC = () => {
   const [rating, setRating] = React.useState(0)
@@ -47,17 +62,56 @@ const Filmes: React.FC = () => {
       </Row>
     </React.Fragment>
   )
+  const movies = getFilms()
+  const movie = movies[0]
   return (
     <main>
-      <NewCriticismButton onClick={toggle}>
-        Adicionar nova crítica
-      </NewCriticismButton>
-      <Modal
-        isShown={isShown}
-        hide={toggle}
-        modalContent={content}
-        headerText={'Adicione uma nova critica'}
-      />
+      <Container>
+        <PageTitle>{movie.title}</PageTitle>
+        <Row justifyContent={'space-between'} alignItems={'flex-start'}>
+          <Wrapper marginTop={'50px'} width={'300px'} height={'380px'}>
+            <MovieCard
+              imageLink={movie.imageLink}
+              key={0}
+              width={'100%'}
+              height={'100%'}
+            ></MovieCard>
+            <Description>
+              [ano][diretor]
+              <br />
+              [categoria]
+            </Description>
+          </Wrapper>
+          <Wrapper>
+            <TraillerCard
+              youtubeTitle="Joker"
+              srcYoutube="https://www.youtube.com/embed/zAGVQLHvwOY"
+            ></TraillerCard>
+            <Description>{movie.description}</Description>
+            <NewCriticismButton onClick={toggle}>
+              Adicionar nova crítica
+            </NewCriticismButton>
+          </Wrapper>
+          <Modal
+            isShown={isShown}
+            hide={toggle}
+            modalContent={content}
+            headerText={'Adicione uma nova critica'}
+          />
+        </Row>
+        <Row justifyContent={'flex-start'}>
+          <PageSubtitle>Criticas da comunidade</PageSubtitle>
+        </Row>
+        <Row justifyContent={'flex-start'}>
+          <BiUserCircle
+            style={{ width: '50px', height: '50px', paddingRight: '10px' }}
+          />
+          <UserName>[nome do usuario]</UserName>
+        </Row>
+        <div style={{ width: '100%', height: '50px', border: 'solid 2px red' }}>
+          <Text>[critica content]</Text>
+        </div>
+      </Container>
     </main>
   )
 }
