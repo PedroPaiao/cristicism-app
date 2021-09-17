@@ -9,7 +9,7 @@
 <h3 align="center">Descrição do projeto</h3>
 <p align="center">App voltado a criticas de filmes/series diversos, sendo que qualquer um pode adicionar uma critica!</p>
 <h4 align="center"> 
-	🚧  O site ainda se em encontra 🚀 Em construção...  🚧
+	🚧  O site ainda está 🚀 Em construção...  🚧
 </h4>
 
 
