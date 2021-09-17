@@ -1,13 +1,16 @@
 import React from 'react'
-import { TraillerCard } from '../components/TraillerCard'
+import { MovieList } from '../components/MovieList'
+import { Container } from '../styles/components/utils/container.style'
+import { Wrapper } from '../styles/components/utils/wrapper.style'
 
 const Home: React.FC = () => {
   return (
     <main>
-      <TraillerCard
-        srcYoutube="https://www.youtube.com/embed/eOrNdBpGMv8?autoplay=1&controls=0&amp;start=10"
-        youtubeTitle="Marvel's The Avengers- Trailer"
-      ></TraillerCard>
+      <Container fluid={true}>
+        <Wrapper marginTop={'400px'}>
+          <MovieList />
+        </Wrapper>
+      </Container>
     </main>
   )
 }

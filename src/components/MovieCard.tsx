@@ -1,13 +1,25 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react'
 import {
   StyledMovieCardDiv,
-  StyledMovieCardImg,
+  StyledMovieCardImg
 } from '../styles/components/moviecard.style'
 
-export function MovieCard({imageLink}): JSX.Element {
+interface MovieCardProps {
+  imageLink: string
+  key?: number
+  width?: string
+  height?: string
+}
+
+export const MovieCard: FunctionComponent<MovieCardProps> = props => {
   return (
-    <StyledMovieCardDiv>
-      <StyledMovieCardImg src={imageLink} alt="Test image" />
+    <StyledMovieCardDiv width={props.width} height={props.height}>
+      <StyledMovieCardImg src={props.imageLink} alt="Test image" />
     </StyledMovieCardDiv>
   )
+}
+
+MovieCard.defaultProps = {
+  width: '180px',
+  height: '265px'
 }
