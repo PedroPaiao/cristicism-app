@@ -1,5 +1,10 @@
 import styled from 'styled-components'
 
+interface StyledMovieCardProps {
+  width?: string
+  height?: string
+}
+
 export const MovieListWrapper = styled.div`
   padding: 10px 0;
 `
@@ -32,7 +37,6 @@ export const StyledMovieCardDiv = styled.div<StyledMovieCardProps>`
     width: 196px;
     height: 234px;
   }
-
   @media (min-width: 1201px) and (max-width: 1600px) {
     width: 136px;
     height: 200px;

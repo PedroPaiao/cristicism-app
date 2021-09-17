@@ -2,6 +2,7 @@ import React from 'react'
 import { AppProps } from 'next/app'
 import { ThemeProvider } from 'styled-components'
 
+import MainFooter from '../components/MainFooter'
 import MainHeader from '../components/MainHeader'
 import GlobalStyle from '../styles/globals'
 import theme from '../styles/theme'
