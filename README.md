@@ -1,34 +1,66 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center">Criticism App</h1>
 
-## Getting Started
+<h3 align="center">Descrição do projeto</h3>
+<h4 align="center">
+  <a href="https://cristicism-app-erahzovtf-progweb.vercel.app/">Acessar o site em produção</a>
+</h4>
 
-First, run the development server:
+
+<h3 align="center">Descrição do projeto</h3>
+<p align="center">App voltado a criticas de filmes/series diversos, sendo que qualquer um pode adicionar uma critica!</p>
+<h4 align="center"> 
+	🚧  O site ainda se em encontra 🚀 Em construção...  🚧
+</h4>
+
+
+<h1 align="center">
+    <a href="https://nextjs.org/">🔗 Nextjs </a>
+</h1>
+<p align="center">🚀 lib para construir interfaces do usuário com componentes reutilizáveis</p>
+
+## Features
+#### Front-end
+
+- [x] Componente card dinamico, que aceita varios parametros.
+- [x] Componente de listagem de cards, que aceita também de forma dinamica os movies a serem mostrados
+- [x] Componente do Header, ou seja, cabeçalho da pagina que fica globalmente no topo de todas as paginas
+- [x] Componente do Footer, ou seja, rodapé da pagina que fica globalmente em baixo de todas as paginas
+- [x] Componente do Carousel, utilizamos uma lib para que fosse responsivo ao maximo aos breakpoints
+- [x] Tela de Homepage de acordo com o figma
+- [x] Tela de vizualização de um filme separadamente de acordo com o figma
+- [ ] Tela de listagem de filmes com filtros
+- [ ] Tela de ultimas criticas adicionadas
+- [ ] Componente de criticas
+- [x] Componente de modal responsivo e dinamico aceitando receber um content completamente diferente
+- [x] Tudo feito em styled-compoenents para serem feitos na mão
+- [x] Bootstrap adicionado apenas para o uso da Grid System
+
+#### Back-end
+
+<h4> 
+	🚧 Backend ainda não foi iniciado  🚧
+</h4>
+
+### Pré-requisitos
+
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+[Git](https://git-scm.com), [Yarn](https://linuxize.com/post/how-to-install-yarn-on-ubuntu-20-04/), [Node.js](https://www.cyberithub.com/install-nvm-for-node-js-on-ubuntu-20-04/)
+Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
+
+### 🎲 Rodando o Back End (servidor)
 
 ```bash
-npm run dev
-# or
-yarn dev
+# Clone este repositório
+$ git clone https://github.com/PedroPaiao/cristicism-app.git
+
+# Acesse a pasta do projeto no terminal/cmd
+$ cd criticism-app
+
+# Recomendamos a instalçao do yarn para o gerenciamento de pacotes das dependencias
+$ yarn install
+
+# Execute a aplicação em modo de desenvolvimento
+$ yarn dev
+
+# O servidor inciará na porta:3000 - acesse <http://localhost:3000>
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
