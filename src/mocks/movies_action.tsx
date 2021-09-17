@@ -10,8 +10,8 @@ interface MovieJson {
   slug: string
 }
 
-export const jsonFile: MovieJson = {
-  slug: 'Filmes em alta',
+export const moviesActionJson: MovieJson = {
+  slug: 'Filmes de Ação',
   movies: [
     {
       title: 'Coringa o filme',

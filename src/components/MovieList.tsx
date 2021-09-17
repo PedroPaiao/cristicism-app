@@ -7,6 +7,7 @@ import {
   ListTitle,
   MovieListWrapper
 } from '../styles/components/moviecard.style'
+import { Wrapper } from '../styles/components/utils/wrapper.style'
 
 interface Movie {
   title: string
@@ -16,6 +17,7 @@ interface Movie {
 
 interface MovieListProps {
   movies?: Movie[]
+  slug?: string
 }
 
 const responsive = {
@@ -38,15 +40,21 @@ const responsive = {
   }
 }
 
-export const MovieList: FunctionComponent<MovieListProps> = () => {
-  const movies = getFilms()
+export const MovieList: FunctionComponent<MovieListProps> = (
+  props: MovieListProps
+) => {
+  const movies = getFilms({ slug: props.slug })
 
   return (
     <MovieListWrapper>
       <ListTitle>{movies.slug}</ListTitle>
       <Carousel responsive={responsive} infinite={true}>
         {movies.movies.map((movie, key) => {
-          return <MovieCard key={key} imageLink={movie.imageLink}></MovieCard>
+          return (
+            <Wrapper width="90%" height="100%" key={key}>
+              <MovieCard key={key} imageLink={movie.imageLink}></MovieCard>
+            </Wrapper>
+          )
         })}
       </Carousel>
     </MovieListWrapper>
