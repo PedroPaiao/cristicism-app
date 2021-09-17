@@ -5,8 +5,7 @@ import {
   CardHeading,
   StarsWrapping
 } from '../styles/components/traillerCard.style'
-import { Row } from '../styles/components/utils.style'
-
+import { Row } from '../styles/components/utils/row.style'
 export interface TraillerCardProps {
   srcYoutube: string
   youtubeTitle: string

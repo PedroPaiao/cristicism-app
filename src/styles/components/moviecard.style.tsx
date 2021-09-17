@@ -6,37 +6,70 @@ interface StyledMovieCardProps {
 }
 
 export const MovieListWrapper = styled.div`
-  background-color: ${props => props.theme.colors.secondary};
   padding: 10px 0;
 `
 
+export const ListTitle = styled.h1`
+  margin-bottom: 5px;
+  font-size: 32px;
+`
+
+interface StyledMovieCardProps {
+  heightProp: string
+  widthProp: string
+}
+
 export const StyledMovieCardDiv = styled.div<StyledMovieCardProps>`
-  width: ${props => props.width};
-  height: ${props => props.height};
+  width: ${props => props.widthProp};
+  height: ${props => props.heightProp};
 
-  /*
-  @media (max-width: 1400px) {
-    width: 130px;
-    height: 180px;
+  &:hover .comment {
+    opacity: 1;
   }
 
-  @media (max-width: 800px) {
-    width: 146px;
-    height: 194px;
-  }
-
-  @media (min-width: 801px) and (max-width: 1200px) {
-    width: 196px;
-    height: 234px;
-  }
-  @media (min-width: 1201px) and (max-width: 1600px) {
-    width: 136px;
-    height: 200px;
-  }
-  */
+  position: relative;
 `
 
 export const StyledMovieCardImg = styled.img`
   width: 100%;
   height: 100%;
+`
+export const Comment = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 35%;
+  padding: 2px;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.336);
+  display: block;
+  opacity: 0;
+
+  -webkit-transition: all 300ms ease;
+  -moz-transition: all 300ms ease;
+  -ms-transition: all 300ms ease;
+  -o-transition: all 300ms ease;
+  transition: all 300ms ease;
+`
+interface CommentProps {
+  fontSize?: string
+}
+
+export const Title = styled.div<CommentProps>`
+  top: 0;
+  color: whitesmoke;
+  font: 400 16px Roboto, sans-serif;
+  font-size: ${props => props.fontSize};
+  position: absolute;
+`
+Title.defaultProps = {
+  fontSize: '.1em'
+}
+
+export const Description = styled.div`
+  bottom: 20%;
+  margin: 0px 15px;
+  color: whitesmoke;
+  font: 400 16px Roboto, sans-serif;
+  font-size: 1em;
+  position: absolute;
 `

@@ -17,6 +17,7 @@ export const Header = styled.header`
   &.headerColorScroll,
   &:hover {
     background: rgb(18, 18, 20, 0.85);
+    z-index: 1000;
   }
 
   a {
@@ -42,6 +43,7 @@ export const Logo = styled.img`
 
 export const Title = styled.h1`
   font-size: 2rem;
+  font-weight: 600;
   font-family: Graphik-Regular-Web, sans-serif;
   letter-spacing: 0.05rem;
   margin-left: 0.5rem;

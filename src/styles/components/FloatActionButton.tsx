@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 
 export const FloatActionButton = styled.button`
-  position: absolute;
+  z-index: 9999;
+  position: fixed;
   bottom: 40px;
   right: 40px;
   background-color: ${props => props.theme.colors.primary};
