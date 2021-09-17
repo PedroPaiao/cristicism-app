@@ -1,8 +1,6 @@
 import React from 'react'
 import { MovieCard } from '../components/MovieCard'
 import { MovieList } from '../components/MovieList'
-import { Container } from '../styles/components/utils/container.style'
-import { Row } from '../styles/components/utils/row.style'
 import { Wrapper } from '../styles/components/utils/wrapper.style'
 
 const Home: React.FC = () => {
@@ -14,38 +12,43 @@ const Home: React.FC = () => {
     'https://midias.agazeta.com.br/2021/06/22/filme-velozes-e-furiosos-9-542213-article.jpg'
   return (
     <main>
-      <Container fluid={true}>
-        <Row>
-          <MovieCard
-            widthProp={'70%'}
-            heightProp={'400px'}
-            imageLink={mainFilmLink}
-          ></MovieCard>
-          <Row displayProp={'inline'}>
-            <MovieCard
-              widthProp={'120%'}
-              heightProp={'190px'}
-              imageLink={secondFilmLink}
-            ></MovieCard>
-            <Wrapper marginTop={'20px'}>
-              <MovieCard
-                widthProp={'120%'}
-                heightProp={'190px'}
-                imageLink={thirdFilmLink}
-              ></MovieCard>
+      <div className="container-fluid">
+        <div className="row">
+          <div className="col-12 col-sm-12 col-md-8">
+            <Wrapper height="400px" width="100%">
+              <MovieCard className="" imageLink={mainFilmLink} />
             </Wrapper>
-          </Row>
-        </Row>
+          </div>
+          <div className="col-12 col-sm-12 col-md-4">
+            <Wrapper className="col col-sm-12" height="190px" width="100%">
+              <MovieCard imageLink={secondFilmLink}></MovieCard>
+            </Wrapper>
+            <Wrapper
+              className="col-12 col-sm-12"
+              height="190px"
+              width="100%"
+              marginTop="20px"
+            >
+              <MovieCard imageLink={thirdFilmLink}></MovieCard>
+            </Wrapper>
+          </div>
+        </div>
         <Wrapper marginTop={'20px'}>
-          <MovieList />
+          <MovieList slug={'trending'} />
         </Wrapper>
         <Wrapper marginTop={'20px'}>
-          <MovieList />
+          <MovieList slug={'fiction'} />
         </Wrapper>
         <Wrapper marginTop={'20px'}>
-          <MovieList />
+          <MovieList slug={'action'} />
         </Wrapper>
-      </Container>
+        <Wrapper marginTop={'20px'}>
+          <MovieList slug={'commedy'} />
+        </Wrapper>
+        <Wrapper marginTop={'20px'}>
+          <MovieList slug={'terror'} />
+        </Wrapper>
+      </div>
     </main>
   )
 }

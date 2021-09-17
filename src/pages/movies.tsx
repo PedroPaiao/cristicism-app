@@ -62,7 +62,7 @@ const Filmes: React.FC = () => {
       </Row>
     </React.Fragment>
   )
-  const getMovies = getFilms()
+  const getMovies = getFilms({ slug: 'props' })
   const movie = getMovies.movies[0]
   return (
     <main>
