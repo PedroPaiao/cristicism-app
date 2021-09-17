@@ -52,7 +52,11 @@ export const MovieList: FunctionComponent<MovieListProps> = (
         {movies.movies.map((movie, key) => {
           return (
             <Wrapper width="90%" height="100%" key={key}>
-              <MovieCard key={key} imageLink={movie.imageLink}></MovieCard>
+              <MovieCard
+                key={key}
+                imageLink={movie.imageLink}
+                showInfo={false}
+              ></MovieCard>
             </Wrapper>
           )
         })}
