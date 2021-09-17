@@ -71,6 +71,7 @@ const Filmes: React.FC = () => {
         <Row justifyContent={'space-between'} alignItems={'flex-start'}>
           <Wrapper marginTop={'50px'} width={'300px'} height={'380px'}>
             <MovieCard
+              permitClick={false}
               id={movie.id}
               imageLink={movie.imageLink}
               key={0}

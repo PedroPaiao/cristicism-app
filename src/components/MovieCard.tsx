@@ -11,7 +11,7 @@ import {
 interface MovieCardProps {
   imageLink: string
   key?: number
-  id: number
+  id?: number
   slugSearch?: string
   heightProp?: string
   widthProp?: string
@@ -20,6 +20,7 @@ interface MovieCardProps {
   description?: string
   className?: string
   showInfo?: boolean
+  permitClick?: boolean
 }
 
 export const MovieCard: FunctionComponent<MovieCardProps> = props => {
@@ -27,14 +28,16 @@ export const MovieCard: FunctionComponent<MovieCardProps> = props => {
 
   const handleClick = e => {
     e.preventDefault()
-    router.push({
-      pathname: '/movies/[id]',
-      query: { id: props.id.toString(), slugSearch: props.slugSearch }
-    })
+    if (props.id != null) {
+      router.push({
+        pathname: '/movies/[id]',
+        query: { id: props.id.toString(), slugSearch: props.slugSearch }
+      })
+    }
   }
   return (
     <StyledMovieCardDiv
-      onClick={handleClick}
+      onClick={props.permitClick ? handleClick : null}
       className={props.className}
       heightProp={props.heightProp}
       widthProp={props.widthProp}
@@ -58,5 +61,6 @@ MovieCard.defaultProps = {
   title: 'PlaceHolder',
   description: 'PlaceHolder',
   slugSearch: 'trending',
-  showInfo: true
+  showInfo: true,
+  permitClick: true
 }

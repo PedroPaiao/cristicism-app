@@ -23,7 +23,7 @@ export default function MainHeader(): JSX.Element {
         </a>
       </BoxTitle>
       <BoxLinks>
-        <a href="#">Filmes</a>
+        <a href="/movies">Filmes</a>
         <a href="#">Criticas</a>
         <SearchBar placeholder="Encontre um filme"></SearchBar>
         <BsSearch />
