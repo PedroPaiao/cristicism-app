@@ -47,7 +47,7 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 [Git](https://git-scm.com), [Yarn](https://linuxize.com/post/how-to-install-yarn-on-ubuntu-20-04/), [Node.js](https://www.cyberithub.com/install-nvm-for-node-js-on-ubuntu-20-04/)
 Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
 
-### 🎲 Rodando o Back End (servidor)
+### 🎲 FronEnd (servidor)
 
 ```bash
 # Clone este repositório
