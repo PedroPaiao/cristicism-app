@@ -1,4 +1,4 @@
-import filmsJson from '../mocks/movies_1.json'
+import { jsonFile } from '../mocks/movies_1'
 
 interface MovieProps {
   title: string
@@ -6,6 +6,13 @@ interface MovieProps {
   imageLink: string
 }
 
-export const getFilms = (): Array<MovieProps> => {
-  return filmsJson
+interface MovieJson {
+  movies: MovieProps[]
+  slug: string
+}
+
+export const getFilms = (): MovieJson => {
+  const moviesJson = jsonFile
+
+  return moviesJson
 }

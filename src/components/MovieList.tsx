@@ -3,7 +3,10 @@ import { getFilms } from '../services/handleMovies'
 import { MovieCard } from '../components/MovieCard'
 import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
-import { MovieListWrapper } from '../styles/components/moviecard.style'
+import {
+  ListTitle,
+  MovieListWrapper
+} from '../styles/components/moviecard.style'
 
 interface Movie {
   title: string
@@ -35,16 +38,14 @@ const responsive = {
   }
 }
 
-export const MovieList: FunctionComponent<MovieListProps> = props => {
-  let movies = getFilms()
-  if (movies == null && props.movies != null) {
-    movies = props.movies
-  }
+export const MovieList: FunctionComponent<MovieListProps> = () => {
+  const movies = getFilms()
 
   return (
     <MovieListWrapper>
+      <ListTitle>{movies.slug}</ListTitle>
       <Carousel responsive={responsive} infinite={true}>
-        {movies.map((movie, key) => {
+        {movies.movies.map((movie, key) => {
           return <MovieCard key={key} imageLink={movie.imageLink}></MovieCard>
         })}
       </Carousel>

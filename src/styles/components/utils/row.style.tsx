@@ -4,10 +4,11 @@ interface RowProps {
   justifyContent?: string
   alignItems?: string
   backgroundColor?: string
+  displayProp?: string
 }
 export const Row = styled.div<RowProps>`
   padding: 12px;
-  display: flex;
+  display: ${props => props.displayProp};
   justify-content: ${props => props.justifyContent};
   align-items: ${props => props.alignItems};
   background-color: ${props => props.backgroundColor};
@@ -15,5 +16,6 @@ export const Row = styled.div<RowProps>`
 Row.defaultProps = {
   justifyContent: 'center',
   alignItems: 'center',
-  backgroundColor: 'transparent'
+  backgroundColor: 'transparent',
+  displayProp: 'flex'
 }

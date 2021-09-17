@@ -1,13 +1,22 @@
 import styled from 'styled-components'
 
 export const MovieListWrapper = styled.div`
-  background-color: ${props => props.theme.colors.secondary};
   padding: 10px 0;
 `
 
-export const StyledMovieCardDiv = styled.div`
-  width: 180px;
-  height: 265px;
+export const ListTitle = styled.h1`
+  margin-bottom: 5px;
+  font-size: 32px;
+`
+
+interface StyledMovieCardProps {
+  heightProp: string
+  widthProp: string
+}
+
+export const StyledMovieCardDiv = styled.div<StyledMovieCardProps>`
+  width: ${props => props.widthProp};
+  height: ${props => props.heightProp};
 
   @media (max-width: 1400px) {
     width: 130px;
