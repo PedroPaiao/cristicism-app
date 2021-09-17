@@ -1,16 +1,15 @@
 import React from 'react'
 import { MovieList } from '../components/MovieList'
-import { Container } from '../styles/components/utils/container.style'
 import { Wrapper } from '../styles/components/utils/wrapper.style'
 
 const Home: React.FC = () => {
   return (
     <main>
-      <Container fluid={true}>
-        <Wrapper marginTop={'400px'}>
+      <div className="container-fluid">
+        <Wrapper marginTop={'400px'} className="row">
           <MovieList />
         </Wrapper>
-      </Container>
+      </div>
     </main>
   )
 }

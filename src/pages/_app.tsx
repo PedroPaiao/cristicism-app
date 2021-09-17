@@ -1,3 +1,5 @@
+import 'bootstrap/dist/css/bootstrap.css'
+
 import React from 'react'
 import { AppProps } from 'next/app'
 import { ThemeProvider } from 'styled-components'
@@ -30,6 +32,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
         modalContent={content}
         headerText={'Registre um novo filme'}
       />
+      <MainFooter></MainFooter>
     </ThemeProvider>
   )
 }

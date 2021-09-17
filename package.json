@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^4.30.0",
+    "bootstrap": "^5.0.0-beta3",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
