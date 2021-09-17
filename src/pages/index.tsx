@@ -1,4 +1,5 @@
 import React from 'react'
+import Carousel from 'react-multi-carousel'
 import { MovieCard } from '../components/MovieCard'
 import { MovieList } from '../components/MovieList'
 import { Wrapper } from '../styles/components/utils/wrapper.style'
@@ -12,19 +13,71 @@ const Home: React.FC = () => {
     'https://midias.agazeta.com.br/2021/06/22/filme-velozes-e-furiosos-9-542213-article.jpg'
   const description =
     'Ao nascer, a Viúva Negra, então conhecida como Natasha Romanova, é entregue à KGB, que a prepara para se tornar sua agente suprema. Porém, o seu próprio governo tenta matá-la quando a União Soviética se desfaz.'
+  const descriptionDora =
+    'É uma jovem aventureira que viaja para diversos destinos diferentes com a ajuda de um mapa. Ao longo do episódio ela ensina palavras e pequenas frases em inglês para quem está assistindo. Ela não é vingativa ou má com o vilão Raposa, que tenta roubar seus amigos a todo momento.'
+  const responsive = {
+    superLargeDesktop: {
+      // the naming can be any, depends on you.
+      breakpoint: { max: 4000, min: 3000 },
+      items: 1
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 1
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 1
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1
+    }
+  }
   return (
     <main>
       <div className="container-fluid">
         <div className="row">
           <div className="col-12 col-sm-12 col-md-8">
             <Wrapper height="400px" width="100%">
-              <MovieCard
-                title={'Viúva Negra'}
-                description={description}
-                fontSize={'2em'}
-                className="col-12 col-sm-12"
-                imageLink={mainFilmLink}
-              />
+              <Carousel responsive={responsive} infinite={true} autoPlay={true}>
+                <MovieCard
+                  heightProp={'400px'}
+                  title={'Viúva Negra'}
+                  description={description}
+                  fontSize={'2em'}
+                  className="col-12 col-sm-12"
+                  imageLink={mainFilmLink}
+                  slugSearch={'main'}
+                  id={74}
+                />
+                <MovieCard
+                  heightProp={'400px'}
+                  title={'Dora a aventureira mesmo'}
+                  description={descriptionDora}
+                  fontSize={'2em'}
+                  className="col-12 col-sm-12"
+                  imageLink={
+                    'https://img.ibxk.com.br//ms/images/highlights/000/049/235/46471.jpg?w=1200&h=675&mode=crop&scale=both'
+                  }
+                  slugSearch={'main'}
+                  id={74}
+                />
+                <MovieCard
+                  heightProp={'400px'}
+                  title={'1917'}
+                  description={
+                    'Na Primeira Guerra Mundial, dois soldados britânicos recebem ordens aparentemente impossíveis de cumprir. Em uma corrida contra o tempo, eles precisam atravessar o território inimigo e entregar uma mensagem que pode salvar 1.600 de seus companheiros.'
+                  }
+                  fontSize={'2em'}
+                  className="col-12 col-sm-12"
+                  imageLink={
+                    'https://cdn.tlc-massive.com/shain/v1/dataservice/ResizeImage/$value?Format=%27png%27&Quality=85&ImageId=%27234319.png%27&ImageUrl=%27234319.png%27&EntityType=%27Item%27&EntityId=%2721151%27&Width=1920&Height=1080&device=web_browser&subscriptions=Anonymous'
+                  }
+                  slugSearch={'main'}
+                  id={74}
+                />
+              </Carousel>
             </Wrapper>
           </div>
           <div className="col-12 col-sm-12 col-md-4">
@@ -33,6 +86,8 @@ const Home: React.FC = () => {
                 fontSize={'1.5em'}
                 title={'Doutor Estranho'}
                 imageLink={secondFilmLink}
+                slugSearch={'main'}
+                id={75}
               ></MovieCard>
             </Wrapper>
             <Wrapper
@@ -45,24 +100,26 @@ const Home: React.FC = () => {
                 fontSize={'1.5em'}
                 title={'Velozes e Furiosos 99'}
                 imageLink={thirdFilmLink}
+                slugSearch={'main'}
+                id={76}
               ></MovieCard>
             </Wrapper>
           </div>
         </div>
         <Wrapper marginTop={'20px'}>
-          <MovieList slug={'trending'} />
+          <MovieList slug={'trending'} slugSearch={'trending'} />
         </Wrapper>
         <Wrapper marginTop={'20px'}>
-          <MovieList slug={'fiction'} />
+          <MovieList slug={'fiction'} slugSearch={'trending'} />
         </Wrapper>
         <Wrapper marginTop={'20px'}>
-          <MovieList slug={'action'} />
+          <MovieList slug={'action'} slugSearch={'trending'} />
         </Wrapper>
         <Wrapper marginTop={'20px'}>
-          <MovieList slug={'commedy'} />
+          <MovieList slug={'commedy'} slugSearch={'trending'} />
         </Wrapper>
         <Wrapper marginTop={'20px'}>
-          <MovieList slug={'terror'} />
+          <MovieList slug={'terror'} slugSearch={'trending'} />
         </Wrapper>
       </div>
     </main>
