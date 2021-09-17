@@ -16,6 +16,7 @@ interface MovieCardProps {
   title?: string
   description?: string
   className?: string
+  showInfo?: boolean
 }
 
 export const MovieCard: FunctionComponent<MovieCardProps> = props => {
@@ -25,10 +26,12 @@ export const MovieCard: FunctionComponent<MovieCardProps> = props => {
       heightProp={props.heightProp}
       widthProp={props.widthProp}
     >
-      <Comment className="comment">
-        <Title fontSize={props.fontSize}>{props.title}</Title>
-        <Description>{props.description}</Description>
-      </Comment>
+      {props.showInfo ? (
+        <Comment className="comment">
+          <Title fontSize={props.fontSize}>{props.title}</Title>
+          <Description>{props.description}</Description>
+        </Comment>
+      ) : null}
       <StyledMovieCardImg src={props.imageLink} alt="Test image" />
     </StyledMovieCardDiv>
   )
@@ -40,5 +43,6 @@ MovieCard.defaultProps = {
   widthProp: '100%',
   fontSize: '1em',
   title: 'PlaceHolder',
-  description: 'PlaceHolder'
+  description: 'PlaceHolder',
+  showInfo: true
 }
