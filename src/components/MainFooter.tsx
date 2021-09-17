@@ -35,7 +35,7 @@ export default function MainFooter(): JSX.Element {
         </SocialItem>
         <SocialItem>
           <SocialItemContent href="https://github.com/MateusZamecki">
-            <GoMarkGithub /> MatheusZamecki
+            <GoMarkGithub /> MateusZamecki
           </SocialItemContent>
         </SocialItem>
         <SocialItem>
