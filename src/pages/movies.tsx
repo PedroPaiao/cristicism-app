@@ -4,7 +4,6 @@ import { Modal } from '../components/CreateMovieModal'
 import { NewCriticismButton } from '../components/NewCriticismButton'
 import { BiUserCircle } from 'react-icons/bi'
 
-import { Row } from '../styles/components/utils.style'
 import { Textarea } from '../styles/components/utils/textarea.style'
 import { Button } from '../styles/components/utils/button.style'
 import {
@@ -23,6 +22,7 @@ import { TraillerCard } from '../components/TraillerCard'
 import { StarsWrapping } from '../styles/components/traillerCard.style'
 import { getFilms } from '../services/handleMovies'
 import { MovieCard } from '../components/MovieCard'
+import { Row } from '../styles/components/utils/row.style'
 
 const Filmes: React.FC = () => {
   const [rating, setRating] = React.useState(0)
@@ -62,8 +62,8 @@ const Filmes: React.FC = () => {
       </Row>
     </React.Fragment>
   )
-  const movies = getFilms()
-  const movie = movies[0]
+  const getMovies = getFilms()
+  const movie = getMovies.movies[0]
   return (
     <main>
       <Container>
@@ -73,8 +73,8 @@ const Filmes: React.FC = () => {
             <MovieCard
               imageLink={movie.imageLink}
               key={0}
-              width={'100%'}
-              height={'100%'}
+              widthProp={'100%'}
+              heightProp={'100%'}
             ></MovieCard>
             <Description>
               [ano][diretor]
