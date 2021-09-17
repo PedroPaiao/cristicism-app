@@ -10,14 +10,17 @@ import {
 import { Wrapper } from '../styles/components/utils/wrapper.style'
 
 interface Movie {
+  id: number
   title: string
   description: string
   imageLink: string
+  slugSearch: string
 }
 
 interface MovieListProps {
   movies?: Movie[]
   slug?: string
+  slugSearch: string
 }
 
 const responsive = {
@@ -54,7 +57,9 @@ export const MovieList: FunctionComponent<MovieListProps> = (
             <Wrapper width="90%" height="100%" key={key}>
               <MovieCard
                 key={key}
+                id={movie.id}
                 imageLink={movie.imageLink}
+                slugSearch={movies.slugSearch}
                 showInfo={false}
               ></MovieCard>
             </Wrapper>

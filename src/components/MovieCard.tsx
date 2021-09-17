@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router'
 import React, { FunctionComponent } from 'react'
 import {
   StyledMovieCardDiv,
@@ -10,6 +11,8 @@ import {
 interface MovieCardProps {
   imageLink: string
   key?: number
+  id: number
+  slugSearch?: string
   heightProp?: string
   widthProp?: string
   fontSize?: string
@@ -20,8 +23,18 @@ interface MovieCardProps {
 }
 
 export const MovieCard: FunctionComponent<MovieCardProps> = props => {
+  const router = useRouter()
+
+  const handleClick = e => {
+    e.preventDefault()
+    router.push({
+      pathname: '/movies/[id]',
+      query: { id: props.id.toString(), slugSearch: props.slugSearch }
+    })
+  }
   return (
     <StyledMovieCardDiv
+      onClick={handleClick}
       className={props.className}
       heightProp={props.heightProp}
       widthProp={props.widthProp}
@@ -44,5 +57,6 @@ MovieCard.defaultProps = {
   fontSize: '1em',
   title: 'PlaceHolder',
   description: 'PlaceHolder',
+  slugSearch: 'trending',
   showInfo: true
 }

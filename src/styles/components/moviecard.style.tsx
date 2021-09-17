@@ -22,6 +22,7 @@ interface StyledMovieCardProps {
 export const StyledMovieCardDiv = styled.div<StyledMovieCardProps>`
   width: ${props => props.widthProp};
   height: ${props => props.heightProp};
+  cursor: pointer;
 
   &:hover .comment {
     opacity: 1;

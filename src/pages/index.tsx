@@ -24,6 +24,8 @@ const Home: React.FC = () => {
                 fontSize={'2em'}
                 className="col-12 col-sm-12"
                 imageLink={mainFilmLink}
+                slugSearch={'main'}
+                id={74}
               />
             </Wrapper>
           </div>
@@ -33,6 +35,8 @@ const Home: React.FC = () => {
                 fontSize={'1.5em'}
                 title={'Doutor Estranho'}
                 imageLink={secondFilmLink}
+                slugSearch={'main'}
+                id={75}
               ></MovieCard>
             </Wrapper>
             <Wrapper
@@ -45,24 +49,26 @@ const Home: React.FC = () => {
                 fontSize={'1.5em'}
                 title={'Velozes e Furiosos 99'}
                 imageLink={thirdFilmLink}
+                slugSearch={'main'}
+                id={76}
               ></MovieCard>
             </Wrapper>
           </div>
         </div>
         <Wrapper marginTop={'20px'}>
-          <MovieList slug={'trending'} />
+          <MovieList slug={'trending'} slugSearch={'trending'} />
         </Wrapper>
         <Wrapper marginTop={'20px'}>
-          <MovieList slug={'fiction'} />
+          <MovieList slug={'fiction'} slugSearch={'trending'} />
         </Wrapper>
         <Wrapper marginTop={'20px'}>
-          <MovieList slug={'action'} />
+          <MovieList slug={'action'} slugSearch={'trending'} />
         </Wrapper>
         <Wrapper marginTop={'20px'}>
-          <MovieList slug={'commedy'} />
+          <MovieList slug={'commedy'} slugSearch={'trending'} />
         </Wrapper>
         <Wrapper marginTop={'20px'}>
-          <MovieList slug={'terror'} />
+          <MovieList slug={'terror'} slugSearch={'trending'} />
         </Wrapper>
       </div>
     </main>
