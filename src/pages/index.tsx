@@ -22,7 +22,7 @@ const Home: React.FC = () => {
                 title={'Viúva Negra'}
                 description={description}
                 fontSize={'2em'}
-                className=""
+                className="col-12 col-sm-12"
                 imageLink={mainFilmLink}
               />
             </Wrapper>

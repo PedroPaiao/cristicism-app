@@ -22,6 +22,12 @@ interface StyledMovieCardProps {
 export const StyledMovieCardDiv = styled.div<StyledMovieCardProps>`
   width: ${props => props.widthProp};
   height: ${props => props.heightProp};
+
+  &:hover .comment {
+    opacity: 1;
+  }
+
+  position: relative;
 `
 
 export const StyledMovieCardImg = styled.img`
