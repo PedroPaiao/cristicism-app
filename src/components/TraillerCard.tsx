@@ -31,13 +31,11 @@ export const TraillerCard: FunctionComponent<TraillerCardProps> = ({
       <CardWrapper>
         <div
           dangerouslySetInnerHTML={{
-            __html: `<iframe
-        width="560"
-        height="315"
-        src=${srcYoutube}
-        title="YouTube video player"
-        frameBorder="0"
-      ></iframe>`
+            __html: `<iframe              
+              src=${srcYoutube}
+              title="YouTube video player"
+              frameBorder="0"
+            ></iframe>`
           }}
         />
         <Row>

@@ -48,6 +48,10 @@ export const Title = styled.h1`
   letter-spacing: 0.05rem;
   margin-left: 0.5rem;
   color: ${props => props.theme.colors.text};
+
+  @media (max-width: 645px) {
+    display: none;
+  }
 `
 export const BoxTitle = styled.div`
   display: inline-flex;
