@@ -2,7 +2,7 @@
 
 <h3 align="center">Descrição do projeto</h3>
 <h4 align="center">
-  <a href="cristicism-app.vercel.app/">Acessar o site em produção</a>
+  <a href="https://cristicism-app.vercel.app/">Acessar o site em produção</a>
 </h4>
 
 
