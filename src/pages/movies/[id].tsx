@@ -3,15 +3,12 @@ import { useRouter } from 'next/router'
 import { useModal } from '../../services/useModal'
 import { Modal } from '../../components/CreateMovieModal'
 import { NewCriticismButton } from '../../components/NewCriticismButton'
-import { BiUserCircle } from 'react-icons/bi'
 
 import { Textarea } from '../../styles/components/utils/textarea.style'
 import { Button } from '../../styles/components/utils/button.style'
 import {
   PageSubtitle,
-  PageTitle,
-  UserName,
-  Text
+  PageTitle
 } from '../../styles/components/utils/pagetitles.style'
 import { Wrapper } from '../../styles/components/utils/wrapper.style'
 import { Description } from '../../styles/components/utils/description.style'
@@ -23,6 +20,7 @@ import { StarsWrapping } from '../../styles/components/traillerCard.style'
 import { getMovie } from '../../services/handleMovies'
 import { MovieCard } from '../../components/MovieCard'
 import { Row } from '../../styles/components/utils/row.style'
+import { BoxCriticism } from '../../services/handleCriticismList'
 
 const Filmes: React.FC = () => {
   const [rating, setRating] = React.useState(0)
@@ -90,9 +88,9 @@ const Filmes: React.FC = () => {
                   heightProp={'100%'}
                 ></MovieCard>
                 <Description>
-                  [ano][diretor]
+                  {movie.year}, {movie.director}
                   <br />
-                  [categoria]
+                  [category]
                 </Description>
               </Wrapper>
             </div>
@@ -100,7 +98,7 @@ const Filmes: React.FC = () => {
               <div>
                 <TraillerCard
                   youtubeTitle="Joker"
-                  srcYoutube="https://www.youtube.com/embed/zAGVQLHvwOY"
+                  srcYoutube={movie.trailerLink}
                 ></TraillerCard>
                 <Description>{movie.description}</Description>
                 <NewCriticismButton onClick={toggle}>
@@ -119,18 +117,7 @@ const Filmes: React.FC = () => {
             <PageSubtitle>Criticas da comunidade</PageSubtitle>
           </div>
           <div className="row align-items-center">
-            <div className="col-2 col-md-1">
-              <BiUserCircle style={{ width: '40px', height: '45px' }} />
-            </div>
-            <div className="col-10 col-md-11">
-              <UserName>[nome do usuario]</UserName>
-            </div>
-            <div
-              className="row-col-12"
-              style={{ width: '100%', height: '50px', border: 'solid 2px red' }}
-            >
-              <Text>[critica content]</Text>
-            </div>
+            <BoxCriticism movieId={movie.id}></BoxCriticism>
           </div>
         </div>
       ) : null}
