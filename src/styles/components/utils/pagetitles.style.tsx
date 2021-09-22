@@ -5,6 +5,10 @@ export const PageTitle = styled.h1`
   color: ${props => props.theme.colors.text};
   font-size: 2.5rem;
   padding-top: 1rem;
+
+  @media (max-width: 425px) {
+    font-size: 2rem;
+  }
 `
 
 export const PageSubtitle = styled.h2`
@@ -15,11 +19,13 @@ export const PageSubtitle = styled.h2`
 
 export const UserName = styled.h3`
   font-size: 1.25rem;
+  margin: 0;
   ${props => props.theme.colors.text};
 `
 
 export const Text = styled.p`
   font-size: 1rem;
   ${props => props.theme.colors.text};
-  padding: 5px;
+  padding: 10px 5px;
+  margin: 0;
 `
