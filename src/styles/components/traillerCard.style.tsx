@@ -30,7 +30,7 @@ export const CardHeading = styled.h2`
   text-align: right;
   width: 88%;
   font-weight: bold;
-  text-align: center;
+  text-align: end;
 `
 
 export const StarsWrapping = styled.div`

@@ -25,7 +25,7 @@ export const UserName = styled.h3`
 
 export const Text = styled.p`
   font-size: 1rem;
-  ${props => props.theme.colors.text};
+  color: #000;
   padding: 10px 5px;
   margin: 0;
 `

@@ -64,6 +64,7 @@ const Filmes: React.FC = () => {
   let movie
   if (id != null) {
     movie = getMovie({ id: Number(id), slug: slugSearch.toString() })
+    console.log('movie', movie)
   }
 
   return (
@@ -88,9 +89,11 @@ const Filmes: React.FC = () => {
                   heightProp={'100%'}
                 ></MovieCard>
                 <Description>
-                  {movie.year}, {movie.director}
+                  Diretor: {movie.director}
                   <br />
-                  [category]
+                  Ano: {movie.year}
+                  <br />
+                  {movie.category}
                 </Description>
               </Wrapper>
             </div>
