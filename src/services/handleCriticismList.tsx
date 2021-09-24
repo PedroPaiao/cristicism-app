@@ -2,7 +2,9 @@ import React, { FunctionComponent } from 'react'
 import { criticismListJson } from '../mocks/criticisms'
 import { BiUserCircle } from 'react-icons/bi'
 import { UserName, Text } from '../styles/components/utils/pagetitles.style'
-import { AutorBox, Criticism } from '../styles/criticismList.style'
+import { AutorBox, Criticism, Rate } from '../styles/criticismList.style'
+import { StarIconWrapper } from '../styles/components/star.style'
+import { StarIcon } from '../components/stars/StarIcon'
 
 interface CriticismProps {
   criticismId: number
@@ -41,8 +43,16 @@ export const BoxCriticism: FunctionComponent<BoxCriticismProps> = (
         return (
           <>
             <AutorBox className="col-12">
-              <BiUserCircle style={{ width: '65px', height: '50px' }} />
-              <UserName>{criticism.autorName}</UserName>
+              <div>
+                <BiUserCircle style={{ width: '65px', height: '50px' }} />
+                <UserName>{criticism.autorName}</UserName>
+              </div>
+              <div>
+                <StarIconWrapper>
+                  <StarIcon props={{ fill: 'yellow' }}></StarIcon>
+                </StarIconWrapper>
+                <Rate>4.5</Rate>
+              </div>
             </AutorBox>
             <Criticism className="row-col-12">
               <div>
