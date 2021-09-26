@@ -13,6 +13,9 @@ export const Header = styled.header`
   &.headerColor {
     background: transparent;
   }
+  &.initialPosition {
+    position: unset;
+  }
 
   &.headerColorScroll,
   &:hover {

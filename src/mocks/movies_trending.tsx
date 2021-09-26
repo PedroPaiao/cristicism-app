@@ -1,16 +1,4 @@
-interface MovieProps {
-  id: number
-  title: string
-  description: string
-  imageLink: string
-  category?: string
-}
-
-interface MovieJson {
-  movies: MovieProps[]
-  slug: string
-  slugSearch: string
-}
+import { MovieJson } from '../interfaces/movie_interface'
 
 export const moviesTrendingJson: MovieJson = {
   slug: 'Filmes em alta',

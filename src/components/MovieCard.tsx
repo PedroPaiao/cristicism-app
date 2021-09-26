@@ -8,20 +8,7 @@ import {
   Description
 } from '../styles/components/moviecard.style'
 
-interface MovieCardProps {
-  imageLink: string
-  key?: number
-  id?: number
-  slugSearch?: string
-  heightProp?: string
-  widthProp?: string
-  fontSize?: string
-  title?: string
-  description?: string
-  className?: string
-  showInfo?: boolean
-  permitClick?: boolean
-}
+import { MovieCardProps } from '../interfaces/movie_interface'
 
 export const MovieCard: FunctionComponent<MovieCardProps> = props => {
   const router = useRouter()

@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react'
-import { getFilms } from '../services/handleMovies'
+import { getMovies } from '../services/handleMovies'
 import { MovieCard } from '../components/MovieCard'
 import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
@@ -8,20 +8,7 @@ import {
   MovieListWrapper
 } from '../styles/components/moviecard.style'
 import { Wrapper } from '../styles/components/utils/wrapper.style'
-
-interface Movie {
-  id: number
-  title: string
-  description: string
-  imageLink: string
-  slugSearch: string
-}
-
-interface MovieListProps {
-  movies?: Movie[]
-  slug?: string
-  slugSearch: string
-}
+import { MovieListProps } from '../interfaces/movie_interface'
 
 const responsive = {
   superLargeDesktop: {
@@ -46,7 +33,7 @@ const responsive = {
 export const MovieList: FunctionComponent<MovieListProps> = (
   props: MovieListProps
 ) => {
-  const movies = getFilms({ slug: props.slug })
+  const movies = getMovies({ slug: props.slug })
 
   return (
     <MovieListWrapper>

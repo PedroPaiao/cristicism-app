@@ -4,25 +4,9 @@ import { moviesFicctionJson } from '../mocks/movies_ficction'
 import { moviesMainJson } from '../mocks/movies_main'
 import { moviesTerrorJson } from '../mocks/movies_terror'
 import { moviesTrendingJson } from '../mocks/movies_trending'
-interface MovieProps {
-  id: number
-  title: string
-  description: string
-  imageLink: string
-  slugSearch: string
-}
+import { MoviesJson, GetMovieProps, MovieProps } from '../interfaces/movie_interface';
 
-interface MovieJson {
-  movies: MovieProps[]
-  slug: string
-  slugSearch: string
-}
-
-interface GetFilmsProps {
-  slug: string
-}
-
-export const getFilms = (props: GetFilmsProps): MovieJson => {
+export const getMovies = (props: GetMovieProps): MoviesJson => {
   let moviesJson
   switch (props.slug) {
     case 'trending':
@@ -49,9 +33,15 @@ export const getFilms = (props: GetFilmsProps): MovieJson => {
   }
 }
 
-interface GetMovieProps {
-  id: number
-  slug: string
+export const getAllMovies = (): MovieProps[] => {
+  return [
+    ...moviesTrendingJson.movies,
+    ...moviesTerrorJson.movies,
+    ...moviesFicctionJson.movies,
+    ...moviesCommedyJson.movies,
+    ...moviesActionJson.movies,
+    ...moviesMainJson.movies,
+  ]
 }
 
 export const getMovie = (props: GetMovieProps): MovieProps => {
