@@ -37,36 +37,40 @@ export const BoxCriticism: FunctionComponent<BoxCriticismProps> = (
   const criticismList = getCriticismList({ id: props.movieId })
   return (
     <>
-      {criticismList != null ? criticismList.criticismList.map(criticism => {
-        console.log(criticism.autorName)
-        return (
-          <>
-            <AutorBox className="col-12">
-              <div>
-                <BiUserCircle style={{ width: '65px', height: '50px' }} />
-                <UserName>{criticism.autorName}</UserName>
-              </div>
-              <div>
-                <StarIconWrapper>
-                  <StarIcon props={{ fill: 'yellow' }}></StarIcon>
-                </StarIconWrapper>
-                <Rate>4.5</Rate>
-              </div>
-            </AutorBox>
-            <Criticism className="row-col-12">
-              <div>
-                <Text>{criticism.content}</Text>
-              </div>
-            </Criticism>
-          </>
-        )
-      }): <>
-      <Criticism className="row-col-12 mb-5">
-        <div>
-          <Text>Filme ainda não possui criticas</Text>
-        </div>
-      </Criticism>
-    </>}
+      {criticismList != null ? (
+        criticismList.criticismList.map(criticism => {
+          console.log(criticism.autorName)
+          return (
+            <>
+              <AutorBox className="col-12">
+                <div>
+                  <BiUserCircle style={{ width: '65px', height: '50px' }} />
+                  <UserName>{criticism.autorName}</UserName>
+                </div>
+                <div>
+                  <StarIconWrapper>
+                    <StarIcon props={{ fill: 'yellow' }}></StarIcon>
+                  </StarIconWrapper>
+                  <Rate>4.5</Rate>
+                </div>
+              </AutorBox>
+              <Criticism className="row-col-12">
+                <div>
+                  <Text>{criticism.content}</Text>
+                </div>
+              </Criticism>
+            </>
+          )
+        })
+      ) : (
+        <>
+          <Criticism className="row-col-12 mb-5">
+            <div>
+              <Text>Filme ainda não possui criticas</Text>
+            </div>
+          </Criticism>
+        </>
+      )}
     </>
   )
 }

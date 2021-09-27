@@ -28,9 +28,9 @@
 - [x] Componente do Carousel, utilizamos uma lib para que fosse responsivo ao maximo aos breakpoints
 - [x] Tela de Homepage de acordo com o figma
 - [x] Tela de vizualização de um filme separadamente de acordo com o figma
-- [ ] Tela de listagem de filmes com filtros
-- [ ] Tela de ultimas criticas adicionadas
-- [ ] Componente de criticas
+- [x] Tela de listagem de filmes com filtros (Sem filtros)
+- [x] Tela de ultimas criticas adicionadas (Agragado a tela de filmes)
+- [x] Componente de criticas
 - [x] Componente de modal responsivo e dinamico aceitando receber um content completamente diferente
 - [x] Tudo feito em styled-compoenents para serem feitos na mão
 - [x] Bootstrap adicionado apenas para o uso da Grid System
