@@ -7,20 +7,18 @@ export const Header = styled.header`
   justify-content: space-between;
   padding: 0.5rem 1.5rem;
   position: fixed;
+  background: ${props => props.theme.colors.background};
   transition: background 1s ease;
   -webkit-transition: background 1s ease;
+  z-index: 99999999;
 
   &.headerColor {
     background: transparent;
-  }
-  &.initialPosition {
-    position: unset;
   }
 
   &.headerColorScroll,
   &:hover {
     background: rgb(18, 18, 20, 0.85);
-    z-index: 1000;
   }
 
   a {
@@ -50,11 +48,16 @@ export const Title = styled.h1`
   font-family: Graphik-Regular-Web, sans-serif;
   letter-spacing: 0.05rem;
   margin-left: 0.5rem;
+  margin-bottom: 0;
   color: ${props => props.theme.colors.text};
+
+  @media (max-width: 645px) {
+    display: none;
+  }
 `
 export const BoxTitle = styled.div`
   display: inline-flex;
-  align-items: end;
+  align-items: center;
 `
 
 export const BoxLinks = styled.nav`

@@ -7,8 +7,11 @@ import { Wrapper } from '../styles/components/utils/wrapper.style'
 const Filmes: React.FC = () => {
   const movies = getAllMovies()
   return (
-    <div className="row mb-5">
-      {movies.map((movie, key) => {
+    <div className="container-fluid">
+      <div className="row mb-5">
+      </div>
+      <div className="row mb-5">
+        {movies.map((movie, key) => {
           return (
             <div className="col col-sm-2">
               <Wrapper width="98%" height="98%" key={key}>
@@ -24,6 +27,7 @@ const Filmes: React.FC = () => {
             </div>
           )
         })}
+      </div>
     </div>
   )
 }

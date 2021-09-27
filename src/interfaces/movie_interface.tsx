@@ -4,6 +4,9 @@ export interface MovieProps {
   description: string
   imageLink: string
   category?: string
+  trailerLink: string
+  director: string
+  year: number
 }
 
 export interface MovieListProps {

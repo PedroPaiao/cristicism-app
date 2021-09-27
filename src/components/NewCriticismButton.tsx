@@ -5,7 +5,8 @@ export const NewCriticismButton = styled.button`
   color: #ffffff;
   font-weight: 600;
   font-size: 1rem;
-  float: right;
+  float: left;
+  margin-bottom: 2rem;
   padding: 0.5rem 0.75rem;
   border-radius: 20px;
   border: none;
