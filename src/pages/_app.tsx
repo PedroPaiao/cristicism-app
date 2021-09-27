@@ -23,7 +23,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <ThemeProvider theme={theme}>
       <MainHeader></MainHeader>
-      <Component {...pageProps}/>
+      <Component {...pageProps} />
       <GlobalStyle />
       <FloatActionButton onClick={toggle}>+</FloatActionButton>
       <Modal
