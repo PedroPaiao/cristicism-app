@@ -47,20 +47,24 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 [Git](https://git-scm.com), [Yarn](https://linuxize.com/post/how-to-install-yarn-on-ubuntu-20-04/), [Node.js](https://www.cyberithub.com/install-nvm-for-node-js-on-ubuntu-20-04/)
 Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
 
-### 🎲 FronEnd (servidor)
+### 🎲 Backend (servidor)
 
 ```bash
 # Clone este repositório
-$ git clone https://github.com/PedroPaiao/cristicism-app.git
+$ git clone git@github.com:PedroPaiao/criticism-app-backend.git
 
 # Acesse a pasta do projeto no terminal/cmd
-$ cd criticism-app
+$ cd criticism-app-backend
 
 # Recomendamos a instalçao do yarn para o gerenciamento de pacotes das dependencias
 $ yarn install
 
+# Agora vamos fazer o setup do banco, atualize o database.ts com as suas autenticações do postgres
+$ yarn sequelize db:create
+$ yarn sequelize db:migrate
+
 # Execute a aplicação em modo de desenvolvimento
 $ yarn dev
 
-# O servidor inciará na porta:3000 - acesse <http://localhost:3000>
+# O servidor inciará na porta:3333 - acesse <http://localhost:3333/movies> para testar.
 ```
