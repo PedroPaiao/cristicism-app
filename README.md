@@ -1,17 +1,7 @@
-<h1 align="center">Criticism App</h1>
+<h1 align="center">Criticism App Backend</h1>
 
 <h3 align="center">Descrição do projeto</h3>
-<h4 align="center">
-  <a href="https://cristicism-app.vercel.app/">Acessar o site em produção</a>
-</h4>
-
-
-<h3 align="center">Descrição do projeto</h3>
-<p align="center">App voltado a criticas de filmes/series diversos, sendo que qualquer um pode adicionar uma critica!</p>
-<h4 align="center"> 
-	🚧  O site ainda está 🚀 Em construção...  🚧
-</h4>
-
+<p align="center">Back end de um app voltado a criticas de filmes/series diversos, sendo que qualquer um pode adicionar uma critica!</p>
 
 <h1 align="center">
     <a href="https://nextjs.org/">🔗 Nextjs </a>
@@ -19,27 +9,12 @@
 <p align="center">🚀 lib para construir interfaces do usuário com componentes reutilizáveis</p>
 
 ## Features
-#### Front-end
-
-- [x] Componente card dinamico, que aceita varios parametros.
-- [x] Componente de listagem de cards, que aceita também de forma dinamica os movies a serem mostrados
-- [x] Componente do Header, ou seja, cabeçalho da pagina que fica globalmente no topo de todas as paginas
-- [x] Componente do Footer, ou seja, rodapé da pagina que fica globalmente em baixo de todas as paginas
-- [x] Componente do Carousel, utilizamos uma lib para que fosse responsivo ao maximo aos breakpoints
-- [x] Tela de Homepage de acordo com o figma
-- [x] Tela de vizualização de um filme separadamente de acordo com o figma
-- [x] Tela de listagem de filmes com filtros (Sem filtros)
-- [x] Tela de ultimas criticas adicionadas (Agragado a tela de filmes)
-- [x] Componente de criticas
-- [x] Componente de modal responsivo e dinamico aceitando receber um content completamente diferente
-- [x] Tudo feito em styled-compoenents para serem feitos na mão
-- [x] Bootstrap adicionado apenas para o uso da Grid System
-
 #### Back-end
 
-<h4> 
-	🚧 Backend ainda não foi iniciado  🚧
-</h4>
+- [x] CRUD movies
+- [ ] CRUD criticas
+- [ ] CRUD usuarios
+- [ ] Populate do banco
 
 ### Pré-requisitos
 
