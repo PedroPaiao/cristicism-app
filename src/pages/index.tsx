@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import Carousel from 'react-multi-carousel'
 import { MovieCard } from '../components/MovieCard'
 import { MovieList } from '../components/MovieList'
+import { AuthContext } from '../contexts/AuthContext'
+import { api } from '../services/api'
 import { Wrapper } from '../styles/components/utils/wrapper.style'
 
 const Home: React.FC = () => {
@@ -34,11 +36,18 @@ const Home: React.FC = () => {
       items: 1
     }
   }
+  const { user } = useContext(AuthContext)
+
+  useEffect(() => {
+    api.get('/')
+  }, [])
+
   return (
     <main>
       <div className="container-fluid">
         <div className="row">
           <div className="col-12 col-sm-12 col-md-8">
+            <p>{user?.email}</p>
             <Wrapper height="400px" width="100%">
               <Carousel responsive={responsive} infinite={true} autoPlay={true}>
                 <MovieCard
