@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const LoginFormWrapper = styled.div`
+export const FormWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -14,6 +14,18 @@ export const LoginFormWrapper = styled.div`
   form {
     display: block;
     position: relative;
+    width: 75%;
+  }
+
+  @media (max-width: 576px) {
+    form {
+      width: 80%;
+    }
+  }
+  @media (max-width: 375px) {
+    form {
+      width: 90%;
+    }
   }
 
   form::after {

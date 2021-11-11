@@ -1,27 +1,30 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { useForm } from 'react-hook-form'
-import SignInData, { AuthContext } from '../contexts/AuthContext'
 import { FormWrapper } from '../styles/components/form.style'
 
 interface InputValues {
+  name: string
   email: string
   password: string
 }
 
-export default function LoginForm(): JSX.Element {
+export default function RegisterForm(): JSX.Element {
   const { register, handleSubmit } = useForm<InputValues>()
-  const { signIn } = useContext(AuthContext)
 
-  async function handleLogin(data: SignInData) {
+  async function handleRegister(data: FormData) {
     console.log(data)
-    await signIn(data)
   }
 
   return (
     <FormWrapper>
-      <form onSubmit={handleSubmit(handleLogin)}>
+      <form onSubmit={handleSubmit(handleRegister)}>
         <fieldset>
-          <h2>Comece a navegar</h2>
+          <h2>Crie sua conta</h2>
+          <div className="form-group">
+            <label htmlFor="name">Nome:</label>
+            <br />
+            <input {...register('name')} type="name" name="name" id="name" />
+          </div>
           <div className="form-group">
             <label htmlFor="email">Email:</label>
             <br />
@@ -43,10 +46,10 @@ export default function LoginForm(): JSX.Element {
               id="password"
             />
           </div>
-          <input type="submit" value="Entrar" />
+          <input type="submit" value="Cadastrar" />
           <p>
-            Ainda nao possui uma conta?
-            <a href="/register"> Cadastre-se agora!</a>
+            Ja possui uma conta?
+            <a href="/login"> Entre!</a>
           </p>
         </fieldset>
       </form>
