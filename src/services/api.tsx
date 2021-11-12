@@ -4,14 +4,14 @@ import { parseCookies } from 'nookies'
 const { 'nextauth.token': token } = parseCookies()
 
 export const api = axios.create({
-  baseURL: 'http://localhost:5000'
+  baseURL: `http://localhost:5000/`
 })
-
+/*
 api.interceptors.request.use(config => {
   console.log(config)
   return config
 })
-
+*/
 if (token) {
-  api.defaults.headers['x-access-token'] = `Bearer ${token}`
+  api.defaults.headers['Authorization'] = `Bearer ${token}`
 }

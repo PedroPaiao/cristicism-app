@@ -39,7 +39,9 @@ const Home: React.FC = () => {
   const { user } = useContext(AuthContext)
 
   useEffect(() => {
-    api.get('/')
+    api.get('/').then(response => {
+      console.log(response);      
+    })
   }, [])
 
   return (
