@@ -2,7 +2,7 @@
 
 <h3 align="center">Descrição do projeto</h3>
 <h4 align="center">
-  <a href="https://cristicism-app-erahzovtf-progweb.vercel.app/">Acessar o site em produção</a>
+  <a href="https://cristicism-app.vercel.app/">Acessar o site em produção</a>
 </h4>
 
 
@@ -28,9 +28,9 @@
 - [x] Componente do Carousel, utilizamos uma lib para que fosse responsivo ao maximo aos breakpoints
 - [x] Tela de Homepage de acordo com o figma
 - [x] Tela de vizualização de um filme separadamente de acordo com o figma
-- [ ] Tela de listagem de filmes com filtros
-- [ ] Tela de ultimas criticas adicionadas
-- [ ] Componente de criticas
+- [x] Tela de listagem de filmes com filtros (Sem filtros)
+- [x] Tela de ultimas criticas adicionadas (Agragado a tela de filmes)
+- [x] Componente de criticas
 - [x] Componente de modal responsivo e dinamico aceitando receber um content completamente diferente
 - [x] Tudo feito em styled-compoenents para serem feitos na mão
 - [x] Bootstrap adicionado apenas para o uso da Grid System
@@ -47,7 +47,7 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 [Git](https://git-scm.com), [Yarn](https://linuxize.com/post/how-to-install-yarn-on-ubuntu-20-04/), [Node.js](https://www.cyberithub.com/install-nvm-for-node-js-on-ubuntu-20-04/)
 Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
 
-### 🎲 Rodando o Back End (servidor)
+### 🎲 FronEnd (servidor)
 
 ```bash
 # Clone este repositório

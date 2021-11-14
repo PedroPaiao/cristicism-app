@@ -14,6 +14,7 @@ export interface TraillerCardProps {
 export const TraillerCard: FunctionComponent<TraillerCardProps> = ({
   srcYoutube
 }) => {
+  console.log(srcYoutube)
   const [rating, setRating] = React.useState(0)
   const [hoverRating, setHoverRating] = React.useState(0)
   const onMouseEnter = index => {

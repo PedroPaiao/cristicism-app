@@ -8,20 +8,7 @@ import {
   Description
 } from '../styles/components/moviecard.style'
 
-interface MovieCardProps {
-  imageLink: string
-  key?: number
-  id?: number
-  slugSearch?: string
-  heightProp?: string
-  widthProp?: string
-  fontSize?: string
-  title?: string
-  description?: string
-  className?: string
-  showInfo?: boolean
-  permitClick?: boolean
-}
+import { MovieCardProps } from '../interfaces/movie_interface'
 
 export const MovieCard: FunctionComponent<MovieCardProps> = props => {
   const router = useRouter()
@@ -31,7 +18,7 @@ export const MovieCard: FunctionComponent<MovieCardProps> = props => {
     if (props.id != null) {
       router.push({
         pathname: '/movies/[id]',
-        query: { id: props.id.toString(), slugSearch: props.slugSearch }
+        query: { id: props.id, slugSearch: props.slugSearch }
       })
     }
   }
@@ -48,7 +35,7 @@ export const MovieCard: FunctionComponent<MovieCardProps> = props => {
           <Description>{props.description}</Description>
         </Comment>
       ) : null}
-      <StyledMovieCardImg src={props.imageLink} alt="Test image" />
+      <StyledMovieCardImg src={props.image_link} alt="Test image" />
     </StyledMovieCardDiv>
   )
 }
