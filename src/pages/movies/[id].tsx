@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { useModal } from '../../services/useModal'
 import { Modal } from '../../components/CreateMovieModal'
@@ -21,8 +21,22 @@ import { getMovie } from '../../services/handleMovies'
 import { MovieCard } from '../../components/MovieCard'
 import { Row } from '../../styles/components/utils/row.style'
 import { BoxCriticism } from '../../services/handleCriticismList'
+import { MovieProps } from '../../interfaces/movie_interface'
 
 const Filmes: React.FC = () => {
+  const [idFixed, setId] = useState<number>()
+  const { id } = useRouter().query
+  const [movie, setMovie] = useState<MovieProps>()
+
+  useEffect(() => {
+    setId(Number(id))
+
+    if (!id) return
+    getMovie({ id: Number(id) || idFixed }).then(response => {
+      setMovie(response)
+    })
+  }, [id])
+
   const [rating, setRating] = React.useState(0)
   const [hoverRating, setHoverRating] = React.useState(0)
   const onMouseEnter = index => {
@@ -60,12 +74,6 @@ const Filmes: React.FC = () => {
       </Row>
     </React.Fragment>
   )
-  const { id, slugSearch } = useRouter().query
-  let movie
-  if (id != null) {
-    movie = getMovie({ id: Number(id), slug: slugSearch.toString() })
-    console.log('movie', movie)
-  }
 
   return (
     <main>
@@ -83,7 +91,7 @@ const Filmes: React.FC = () => {
                 <MovieCard
                   permitClick={false}
                   showInfo={false}
-                  imageLink={movie.imageLink}
+                  image_link={movie.image_link}
                   key={0}
                   widthProp={'100%'}
                   heightProp={'100%'}
@@ -101,7 +109,7 @@ const Filmes: React.FC = () => {
               <div>
                 <TraillerCard
                   youtubeTitle="Joker"
-                  srcYoutube={movie.trailerLink}
+                  srcYoutube={movie.trailler_link}
                 ></TraillerCard>
                 <Description>{movie.description}</Description>
                 <NewCriticismButton onClick={toggle}>

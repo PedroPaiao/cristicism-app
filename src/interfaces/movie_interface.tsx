@@ -2,9 +2,9 @@ export interface MovieProps {
   id: number
   title: string
   description: string
-  imageLink: string
+  image_link: string
   category?: string
-  trailerLink: string
+  trailler_link: string
   director: string
   year: number
   slugSearch?: string
@@ -24,7 +24,7 @@ export interface MoviesJson {
 
 export interface GetMovieProps {
   id?: number
-  slug: string
+  slug?: string
 }
 
 export interface MovieJson {
@@ -34,7 +34,7 @@ export interface MovieJson {
 }
 
 export interface MovieCardProps {
-  imageLink: string
+  image_link: string
   key?: number
   id?: number
   slugSearch?: string

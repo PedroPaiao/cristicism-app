@@ -18,7 +18,7 @@ export const MovieCard: FunctionComponent<MovieCardProps> = props => {
     if (props.id != null) {
       router.push({
         pathname: '/movies/[id]',
-        query: { id: props.id.toString(), slugSearch: props.slugSearch }
+        query: { id: props.id, slugSearch: props.slugSearch }
       })
     }
   }
@@ -35,7 +35,7 @@ export const MovieCard: FunctionComponent<MovieCardProps> = props => {
           <Description>{props.description}</Description>
         </Comment>
       ) : null}
-      <StyledMovieCardImg src={props.imageLink} alt="Test image" />
+      <StyledMovieCardImg src={props.image_link} alt="Test image" />
     </StyledMovieCardDiv>
   )
 }

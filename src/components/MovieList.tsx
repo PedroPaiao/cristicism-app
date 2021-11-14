@@ -37,9 +37,7 @@ export const MovieList: FunctionComponent<MovieListProps> = (
 
   useEffect(() => {
     getMovies({ slug: props.slug }).then(response => {
-      console.log(response)
       setMovies(response)
-      console.log(moviesList)
     })
   }, [])
 
@@ -55,7 +53,7 @@ export const MovieList: FunctionComponent<MovieListProps> = (
                   <MovieCard
                     key={key}
                     id={movie.id}
-                    imageLink={movie.imageLink}
+                    image_link={movie.image_link}
                     slugSearch={moviesList.movies[0].slugSearch}
                     showInfo={false}
                   ></MovieCard>

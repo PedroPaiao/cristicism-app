@@ -47,7 +47,7 @@ const Home: React.FC = () => {
                   description={description}
                   fontSize={'2em'}
                   className="col-12 col-sm-12"
-                  imageLink={mainFilmLink}
+                  image_link={mainFilmLink}
                   slugSearch={'main'}
                   id={74}
                 />
@@ -57,7 +57,7 @@ const Home: React.FC = () => {
                   description={descriptionDora}
                   fontSize={'2em'}
                   className="col-12 col-sm-12"
-                  imageLink={
+                  image_link={
                     'https://img.ibxk.com.br//ms/images/highlights/000/049/235/46471.jpg?w=1200&h=675&mode=crop&scale=both'
                   }
                   slugSearch={'main'}
@@ -71,7 +71,7 @@ const Home: React.FC = () => {
                   }
                   fontSize={'2em'}
                   className="col-12 col-sm-12"
-                  imageLink={
+                  image_link={
                     'https://cdn.tlc-massive.com/shain/v1/dataservice/ResizeImage/$value?Format=%27png%27&Quality=85&ImageId=%27234319.png%27&ImageUrl=%27234319.png%27&EntityType=%27Item%27&EntityId=%2721151%27&Width=1920&Height=1080&device=web_browser&subscriptions=Anonymous'
                   }
                   slugSearch={'main'}
@@ -85,7 +85,7 @@ const Home: React.FC = () => {
               <MovieCard
                 fontSize={'1.5em'}
                 title={'Doutor Estranho'}
-                imageLink={secondFilmLink}
+                image_link={secondFilmLink}
                 slugSearch={'main'}
                 id={75}
               ></MovieCard>
@@ -99,7 +99,7 @@ const Home: React.FC = () => {
               <MovieCard
                 fontSize={'1.5em'}
                 title={'Velozes e Furiosos 99'}
-                imageLink={thirdFilmLink}
+                image_link={thirdFilmLink}
                 slugSearch={'main'}
                 id={76}
               ></MovieCard>
