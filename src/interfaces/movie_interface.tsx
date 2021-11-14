@@ -7,12 +7,13 @@ export interface MovieProps {
   trailerLink: string
   director: string
   year: number
+  slugSearch?: string
 }
 
 export interface MovieListProps {
   movies?: MovieProps[]
   slug?: string
-  slugSearch: string
+  slugSearch?: string
 }
 
 export interface MoviesJson {

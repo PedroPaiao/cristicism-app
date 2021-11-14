@@ -4,33 +4,27 @@ import { moviesFicctionJson } from '../mocks/movies_ficction'
 import { moviesMainJson } from '../mocks/movies_main'
 import { moviesTerrorJson } from '../mocks/movies_terror'
 import { moviesTrendingJson } from '../mocks/movies_trending'
-import { MoviesJson, GetMovieProps, MovieProps } from '../interfaces/movie_interface';
+import {
+  MovieListProps,
+  GetMovieProps,
+  MovieProps
+} from '../interfaces/movie_interface'
 
-export const getMovies = (props: GetMovieProps): MoviesJson => {
-  let moviesJson
-  switch (props.slug) {
-    case 'trending':
-      moviesJson = moviesTrendingJson
-      return moviesJson
-    case 'action':
-      moviesJson = moviesActionJson
-      return moviesJson
-    case 'fiction':
-      moviesJson = moviesFicctionJson
-      return moviesJson
-    case 'terror':
-      moviesJson = moviesTerrorJson
-      return moviesJson
-    case 'commedy':
-      moviesJson = moviesCommedyJson
-      return moviesJson
-    case 'main':
-      moviesJson = moviesMainJson
-      return moviesJson
-    default:
-      moviesJson = moviesTrendingJson
-      return moviesJson
-  }
+import axios from 'axios'
+
+export const getMovies = async (
+  props: GetMovieProps
+): Promise<MovieListProps> => {
+  const moviesList: MovieListProps = {}
+  await axios
+    .get(`http://localhost:5000/movies?slug=${props.slug}`)
+    .then(response => {
+      moviesList.movies = response.data
+      moviesList.slug = props.slug
+      moviesList.slugSearch = props.slug
+    })
+
+  return moviesList
 }
 
 export const getAllMovies = (): MovieProps[] => {
@@ -40,7 +34,7 @@ export const getAllMovies = (): MovieProps[] => {
     ...moviesFicctionJson.movies,
     ...moviesCommedyJson.movies,
     ...moviesActionJson.movies,
-    ...moviesMainJson.movies,
+    ...moviesMainJson.movies
   ]
 }
 

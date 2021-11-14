@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react'
+import React, { FunctionComponent, useState, useEffect } from 'react'
 import { getMovies } from '../services/handleMovies'
 import { MovieCard } from '../components/MovieCard'
 import Carousel from 'react-multi-carousel'
@@ -33,26 +33,40 @@ const responsive = {
 export const MovieList: FunctionComponent<MovieListProps> = (
   props: MovieListProps
 ) => {
-  const movies = getMovies({ slug: props.slug })
+  const [moviesList, setMovies] = useState<MovieListProps>()
+
+  useEffect(() => {
+    getMovies({ slug: props.slug }).then(response => {
+      console.log(response)
+      setMovies(response)
+      console.log(moviesList)
+    })
+  }, [])
 
   return (
     <MovieListWrapper>
-      <ListTitle>{movies.slug}</ListTitle>
-      <Carousel responsive={responsive} infinite={true}>
-        {movies.movies.map((movie, key) => {
-          return (
-            <Wrapper width="90%" height="100%" key={key}>
-              <MovieCard
-                key={key}
-                id={movie.id}
-                imageLink={movie.imageLink}
-                slugSearch={movies.slugSearch}
-                showInfo={false}
-              ></MovieCard>
-            </Wrapper>
-          )
-        })}
-      </Carousel>
+      {moviesList?.movies.length > 0 ? (
+        <>
+          <ListTitle>{moviesList.slug}</ListTitle>
+          <Carousel responsive={responsive} infinite={true}>
+            {moviesList.movies.map((movie, key) => {
+              return (
+                <Wrapper width="90%" height="100%" key={key}>
+                  <MovieCard
+                    key={key}
+                    id={movie.id}
+                    imageLink={movie.imageLink}
+                    slugSearch={moviesList.movies[0].slugSearch}
+                    showInfo={false}
+                  ></MovieCard>
+                </Wrapper>
+              )
+            })}
+          </Carousel>
+        </>
+      ) : (
+        <h1></h1>
+      )}
     </MovieListWrapper>
   )
 }
