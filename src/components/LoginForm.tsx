@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { useForm } from 'react-hook-form'
-import SignInData, { AuthContext } from '../contexts/AuthContext'
+import AuthContext from '../contexts/AuthContext'
+import { SignInData } from '../services/auth'
 import { FormWrapper } from '../styles/components/form.style'
 
 interface InputValues {
@@ -13,7 +14,6 @@ export default function LoginForm(): JSX.Element {
   const { signIn } = useContext(AuthContext)
 
   async function handleLogin(data: SignInData) {
-    console.log(data)
     await signIn(data)
   }
 

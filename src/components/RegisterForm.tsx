@@ -1,18 +1,24 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
+import { api } from '../services/api'
+import { signIn } from '../services/auth'
 import { FormWrapper } from '../styles/components/form.style'
 
-interface InputValues {
+interface RegisterData {
   name: string
   email: string
   password: string
+  passwordconfirm: string
 }
 
 export default function RegisterForm(): JSX.Element {
-  const { register, handleSubmit } = useForm<InputValues>()
+  const { register, handleSubmit } = useForm<RegisterData>()
 
-  async function handleRegister(data: FormData) {
+  async function handleRegister(data: RegisterData) {
     console.log(data)
+    await api.post('/users', data).then(response => {
+      signIn(response.data)
+    })
   }
 
   return (
@@ -23,7 +29,7 @@ export default function RegisterForm(): JSX.Element {
           <div className="form-group">
             <label htmlFor="name">Nome:</label>
             <br />
-            <input {...register('name')} type="name" name="name" id="name" />
+            <input {...register('name')} type="text" name="name" id="name" />
           </div>
           <div className="form-group">
             <label htmlFor="email">Email:</label>
@@ -44,6 +50,16 @@ export default function RegisterForm(): JSX.Element {
               type="password"
               name="password"
               id="password"
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="passwordconfirm">Confirme a senha:</label>
+            <br />
+            <input
+              {...register('passwordconfirm')}
+              type="password"
+              name="passwordconfirm"
+              id="passwordconfirm"
             />
           </div>
           <input type="submit" value="Cadastrar" />
