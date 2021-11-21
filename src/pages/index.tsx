@@ -1,7 +1,11 @@
 import React from 'react'
+import { GetServerSideProps } from 'next'
+import { parseCookies } from 'nookies'
+
 import Carousel from 'react-multi-carousel'
 import { MovieCard } from '../components/MovieCard'
 import { MovieList } from '../components/MovieList'
+
 import { Wrapper } from '../styles/components/utils/wrapper.style'
 
 const Home: React.FC = () => {
@@ -34,6 +38,7 @@ const Home: React.FC = () => {
       items: 1
     }
   }
+
   return (
     <main>
       <div className="container-fluid">
@@ -126,3 +131,20 @@ const Home: React.FC = () => {
   )
 }
 export default Home
+
+export const getServerSideProps: GetServerSideProps = async ctx => {
+  const { 'nextauth-token': cookie } = parseCookies(ctx)
+
+  if (cookie === undefined) {
+    return {
+      redirect: {
+        destination: '/login',
+        permanent: false
+      }
+    }
+  }
+
+  return {
+    props: {}
+  }
+}

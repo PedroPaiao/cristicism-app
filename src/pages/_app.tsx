@@ -11,6 +11,7 @@ import theme from '../styles/theme'
 import { FloatActionButton } from '../styles/components/FloatActionButton'
 import { Modal } from '../components/CreateMovieModal'
 import { useModal } from '../services/useModal'
+import { AuthProvider } from '../contexts/AuthContext'
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   const { isShown, toggle } = useModal()
@@ -22,17 +23,19 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <MainHeader></MainHeader>
-      <Component {...pageProps} />
-      <GlobalStyle />
-      <FloatActionButton onClick={toggle}>+</FloatActionButton>
-      <Modal
-        isShown={isShown}
-        hide={toggle}
-        modalContent={content}
-        headerText={'Registre um novo filme'}
-      />
-      <MainFooter></MainFooter>
+      <AuthProvider>
+        <MainHeader></MainHeader>
+        <Component {...pageProps} />
+        <GlobalStyle />
+        <FloatActionButton onClick={toggle}>+</FloatActionButton>
+        <Modal
+          isShown={isShown}
+          hide={toggle}
+          modalContent={content}
+          headerText={'Registre um novo filme'}
+        />
+        <MainFooter></MainFooter>
+      </AuthProvider>
     </ThemeProvider>
   )
 }
