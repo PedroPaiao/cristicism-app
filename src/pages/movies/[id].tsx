@@ -17,11 +17,12 @@ import { StarsRating } from '../../components/stars/StarsRating'
 
 import { TraillerCard } from '../../components/TraillerCard'
 import { StarsWrapping } from '../../styles/components/traillerCard.style'
-import { getMovie } from '../../services/handleMovies'
+import { createCriticism, getMovie } from '../../services/handleMovies'
 import { MovieCard } from '../../components/MovieCard'
 import { Row } from '../../styles/components/utils/row.style'
 import { BoxCriticism } from '../../services/handleCriticismList'
 import { MovieProps } from '../../interfaces/movie_interface'
+import { userInfo } from 'os'
 
 const Filmes: React.FC = () => {
   const [idFixed, setId] = useState<number>()
@@ -49,10 +50,20 @@ const Filmes: React.FC = () => {
     setRating(index)
     // TODO: API call to save on backend
   }
+  const textValue = ''
+  const doRequest = () => {
+    return createCriticism({
+      movieId: movie.id,
+      userId: 1,
+      description: textValue,
+      rate: 0
+    })
+  }
+
   const { isShown, toggle } = useModal()
   const content = (
     <React.Fragment>
-      <Textarea placeholder={'O que achou do filme?'} />
+      <Textarea value={textValue} placeholder={'O que achou do filme?'} />
       <Row justifyContent={'space-between'}>
         <Button backgroundColor={'#ADADAD'}>Cancelar</Button>
         <StarsWrapping>
@@ -70,7 +81,7 @@ const Filmes: React.FC = () => {
             )
           })}
         </StarsWrapping>
-        <Button>Enviar</Button>
+        <Button onClick={doRequest}>Enviar</Button>
       </Row>
     </React.Fragment>
   )
