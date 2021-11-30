@@ -1,7 +1,8 @@
+import { ButtonHTMLAttributes } from 'react'
 import styled from 'styled-components'
 import theme from '../../theme'
 
-interface ButtonProps {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   backgroundColor?: string
   value?: string
   autofocus?: boolean

@@ -5,6 +5,7 @@ import {
 } from '../interfaces/movie_interface'
 
 import axios from 'axios'
+import { getAPIClient } from './axios'
 
 export const getMovies = async (
   props: GetMovieProps
@@ -19,6 +20,24 @@ export const getMovies = async (
     })
 
   return moviesList
+}
+
+interface CreateCriticismProp {
+  description: string
+  rate: number
+  userId: number
+  movieId: number
+}
+
+interface CriticismResponse {
+  data: CreateCriticismProp
+}
+
+export const createCriticism = async (
+  props: CreateCriticismProp
+): Promise<CriticismResponse> => {
+  const api = getAPIClient()
+  return api.post(`http://localhost:5000/movies/${props.movieId}/criticizes`)
 }
 
 export const getMovie = async (props: GetMovieProps): Promise<MovieProps> => {
