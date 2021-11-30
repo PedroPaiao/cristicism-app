@@ -20,7 +20,7 @@ import { StarsWrapping } from '../../styles/components/traillerCard.style'
 import { getMovie } from '../../services/handleMovies'
 import { MovieCard } from '../../components/MovieCard'
 import { Row } from '../../styles/components/utils/row.style'
-import { BoxCriticism } from '../../services/handleCriticismList'
+import { BoxCriticism } from '../../components/BoxCriticism'
 import { MovieProps } from '../../interfaces/movie_interface'
 
 const Filmes: React.FC = () => {

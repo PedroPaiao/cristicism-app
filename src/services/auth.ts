@@ -22,7 +22,7 @@ export async function signInRequest(
       user = response.data.user
     })
     .catch(error => {
-      console.log(error)
+      alert(error)
     })
   return { user }
 }
@@ -41,6 +41,6 @@ export async function signIn({ email, password }: SignInData): Promise<User> {
     Router.push('/')
     return user
   } catch (error) {
-    console.log(error)
+    alert(error)
   }
 }

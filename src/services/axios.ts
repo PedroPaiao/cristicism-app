@@ -1,22 +1,21 @@
-import axios from 'axios'
+import axios, { AxiosInstance } from 'axios'
 import { parseCookies } from 'nookies'
+import { Context } from 'vm'
 
-export function getAPIClient(ctx?: any) {
+export function getAPIClient(ctx?: Context): AxiosInstance {
   const { 'nextauth-token': token } = parseCookies(ctx)
-  console.log('token: ', token)
 
   const api = axios.create({
     baseURL: `http://localhost:5000`
   })
 
   api.interceptors.request.use(config => {
-    console.log('config', config)
     return config
   })
 
   if (token) {
-    // eslint-disable-next-line dot-notation
-    api.defaults.headers['Authorization'] = `Bearer ${token}`
+    const newLocal = 'Authorization'
+    api.defaults.headers[newLocal] = `Bearer ${token}`
   }
   return api
 }

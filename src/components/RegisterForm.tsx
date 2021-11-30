@@ -15,7 +15,6 @@ export default function RegisterForm(): JSX.Element {
   const { register, handleSubmit } = useForm<RegisterData>()
 
   async function handleRegister(data: RegisterData) {
-    console.log(data)
     await api.post('/users', data).then(response => {
       signIn(response.data)
     })
