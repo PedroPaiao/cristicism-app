@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react'
+import React from 'react'
 import { GoMarkGithub } from 'react-icons/go'
 import getLocalStorage from '../services/localstorage'
 import {
@@ -10,40 +10,41 @@ import {
 
 const userLoggedIn = getLocalStorage()
 
-const MainFooter: FunctionComponent<void> = () => {
-  const footer = (
-    <Footer>
-      <SocialList>
-        <SocialItem>
-          <SocialItemContent href="https://github.com/PedroPaiao/cristicism-app">
-            <GoMarkGithub /> Link para o GitHub do projeto
-          </SocialItemContent>
-        </SocialItem>
-      </SocialList>
-      <SocialList>
-        <SocialItem>
-          <SocialItemContent href="https://github.com/KaiqueCipola">
-            <GoMarkGithub /> KaiqueCipola
-          </SocialItemContent>
-        </SocialItem>
-        <SocialItem>
-          <SocialItemContent href="https://github.com/vieiramanda">
-            <GoMarkGithub /> vieiramanda
-          </SocialItemContent>
-        </SocialItem>
-        <SocialItem>
-          <SocialItemContent href="https://github.com/PedroPaiao">
-            <GoMarkGithub /> PedroPaiao
-          </SocialItemContent>
-        </SocialItem>
-      </SocialList>
-      <SocialList>
-        <span>Copyrigth</span> &copy; 2021, Criticism-App, todos os direitos
-        reservados
-      </SocialList>
-    </Footer>
-  )
-  return userLoggedIn ? footer : null
+export default function MainFooter(): JSX.Element {
+  if (userLoggedIn) {
+    const footer = (
+      <Footer>
+        <SocialList>
+          <SocialItem>
+            <SocialItemContent href="https://github.com/PedroPaiao/cristicism-app">
+              <GoMarkGithub /> Link para o GitHub do projeto
+            </SocialItemContent>
+          </SocialItem>
+        </SocialList>
+        <SocialList>
+          <SocialItem>
+            <SocialItemContent href="https://github.com/KaiqueCipola">
+              <GoMarkGithub /> KaiqueCipola
+            </SocialItemContent>
+          </SocialItem>
+          <SocialItem>
+            <SocialItemContent href="https://github.com/vieiramanda">
+              <GoMarkGithub /> vieiramanda
+            </SocialItemContent>
+          </SocialItem>
+          <SocialItem>
+            <SocialItemContent href="https://github.com/PedroPaiao">
+              <GoMarkGithub /> PedroPaiao
+            </SocialItemContent>
+          </SocialItem>
+        </SocialList>
+        <SocialList>
+          <span>Copyrigth</span> &copy; 2021, Criticism-App, todos os direitos
+          reservados
+        </SocialList>
+      </Footer>
+    )
+    return footer
+  }
+  return null
 }
-
-export default MainFooter

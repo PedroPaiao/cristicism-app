@@ -25,8 +25,9 @@ const Filmes: React.FC = () => {
                     <MovieCard
                       key={key}
                       id={movie.id}
+                      title={movie.name}
+                      description={movie.description}
                       image_link={movie.image_link}
-                      showInfo={false}
                       heightProp={'100%'}
                       widthProp={'100%'}
                     ></MovieCard>

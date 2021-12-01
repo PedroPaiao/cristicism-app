@@ -22,12 +22,13 @@ import { MovieCard } from '../../components/MovieCard'
 import { Row } from '../../styles/components/utils/row.style'
 import { BoxCriticism } from '../../components/BoxCriticism'
 import { MovieProps } from '../../interfaces/movie_interface'
-import { userInfo } from 'os'
+import { getCriticisms } from '../../services/handleCriticism'
 
 const Filmes: React.FC = () => {
   const [idFixed, setId] = useState<number>()
   const { id } = useRouter().query
   const [movie, setMovie] = useState<MovieProps>()
+  const [criticismList, setCriticismList] = useState([])
 
   useEffect(() => {
     setId(Number(id))
@@ -35,6 +36,10 @@ const Filmes: React.FC = () => {
     if (!id) return
     getMovie({ id: Number(id) || idFixed }).then(response => {
       setMovie(response)
+    })
+
+    getCriticisms(Number(id)).then(response => {
+      setCriticismList(response.data)
     })
   }, [id])
 
@@ -50,20 +55,38 @@ const Filmes: React.FC = () => {
     setRating(index)
     // TODO: API call to save on backend
   }
-  const textValue = ''
+  const [textValue, setTextValue] = useState('')
+
+  const handleChange = event => {
+    setTextValue(event.target.value)
+  }
+
+  const refreshCriticismList = () => {
+    getCriticisms(movie.id).then(response => setCriticismList(response.data))
+  }
+
   const doRequest = () => {
     return createCriticism({
       movieId: movie.id,
-      userId: 1,
       description: textValue,
-      rate: 0
+      rate: rating
     })
+      .then(response => {
+        alert('Critica adicionada com sucesso!' + response.data)
+        toggle()
+        refreshCriticismList()
+      })
+      .catch(error => alert('Algo inesperado ocorreu \n' + error))
   }
 
   const { isShown, toggle } = useModal()
   const content = (
     <React.Fragment>
-      <Textarea value={textValue} placeholder={'O que achou do filme?'} />
+      <Textarea
+        value={textValue}
+        onChange={handleChange}
+        placeholder={'O que achou do filme?'}
+      />
       <Row justifyContent={'space-between'}>
         <Button backgroundColor={'#ADADAD'}>Cancelar</Button>
         <StarsWrapping>
@@ -90,7 +113,7 @@ const Filmes: React.FC = () => {
     <main>
       {movie != null ? (
         <div className="container">
-          <PageTitle>{movie.title}</PageTitle>
+          <PageTitle>{movie.name}</PageTitle>
           <div className="row">
             <div className="col-12 col-sm-12 col-lg-4">
               <Wrapper
@@ -110,7 +133,7 @@ const Filmes: React.FC = () => {
                 <Description>
                   Diretor: {movie.director}
                   <br />
-                  Ano: {movie.year}
+                  Ano: {Date.parse(movie.year.toString())}
                   <br />
                   {movie.category}
                 </Description>
@@ -139,7 +162,10 @@ const Filmes: React.FC = () => {
             <PageSubtitle>Criticas da comunidade</PageSubtitle>
           </div>
           <div className="row align-items-center">
-            <BoxCriticism movieId={movie.id}></BoxCriticism>
+            <BoxCriticism
+              movieId={movie.id}
+              list={criticismList}
+            ></BoxCriticism>
           </div>
         </div>
       ) : null}

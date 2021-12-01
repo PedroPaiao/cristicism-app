@@ -1,6 +1,6 @@
 export interface MovieProps {
   id: number
-  title: string
+  name: string
   description: string
   image_link: string
   category?: string

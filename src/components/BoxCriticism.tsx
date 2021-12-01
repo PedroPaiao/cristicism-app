@@ -4,24 +4,30 @@ import { UserName, Text } from '../styles/components/utils/pagetitles.style'
 import { AutorBox, Criticism, Rate } from '../styles/criticismList.style'
 import { StarIconWrapper } from '../styles/components/star.style'
 import { StarIcon } from './stars/StarIcon'
-import { getCriticisms } from '../services/handleCriticism'
+
+interface UserProps {
+  name: string
+}
+
+interface CriticismProps {
+  id: number
+  description: string
+  rate: string
+  User: UserProps
+}
 
 interface BoxCriticismProps {
   movieId: number
+  list: CriticismProps[]
 }
 
 export const BoxCriticism: FunctionComponent<BoxCriticismProps> = (
   props: BoxCriticismProps
 ) => {
-  const [criticismList, setCriticismList] = useState([])
-  useEffect(() => {
-    getCriticisms(props.movieId).then(response => {
-      setCriticismList(response.data)
-    })
-  }, [])
+  const criticismList = props.list
   return (
     <>
-      {criticismList != null ? (
+      {criticismList.length > 0 ? (
         criticismList.map((criticism, index) => {
           return (
             <div key={index}>

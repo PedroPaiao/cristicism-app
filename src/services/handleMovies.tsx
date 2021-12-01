@@ -25,7 +25,6 @@ export const getMovies = async (
 interface CreateCriticismProp {
   description: string
   rate: number
-  userId: number
   movieId: number
 }
 
@@ -37,7 +36,10 @@ export const createCriticism = async (
   props: CreateCriticismProp
 ): Promise<CriticismResponse> => {
   const api = getAPIClient()
-  return api.post(`http://localhost:5000/movies/${props.movieId}/criticizes`)
+  return api.post(
+    `http://localhost:5000/movies/${props.movieId}/criticizes`,
+    props
+  )
 }
 
 export const getMovie = async (props: GetMovieProps): Promise<MovieProps> => {
