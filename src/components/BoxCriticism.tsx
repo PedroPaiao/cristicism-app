@@ -4,6 +4,7 @@ import { UserName, Text } from '../styles/components/utils/pagetitles.style'
 import { AutorBox, Criticism, Rate } from '../styles/criticismList.style'
 import { StarIconWrapper } from '../styles/components/star.style'
 import { StarIcon } from './stars/StarIcon'
+import { TrashIcon } from './TrashIcon'
 
 interface UserProps {
   name: string
@@ -37,6 +38,7 @@ export const BoxCriticism: FunctionComponent<BoxCriticismProps> = (
                   <UserName>{criticism.User.name}</UserName>
                 </div>
                 <div>
+                  <TrashIcon id={criticism.id}></TrashIcon>
                   <StarIconWrapper>
                     <StarIcon props={{ fill: 'yellow' }}></StarIcon>
                   </StarIconWrapper>

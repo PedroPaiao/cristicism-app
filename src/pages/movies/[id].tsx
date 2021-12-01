@@ -71,12 +71,12 @@ const Filmes: React.FC = () => {
       description: textValue,
       rate: rating
     })
-      .then(response => {
-        alert('Critica adicionada com sucesso!' + response.data)
+      .then(() => {
+        alert('Critica adicionada com sucesso!')
         toggle()
         refreshCriticismList()
       })
-      .catch(error => alert('Algo inesperado ocorreu \n' + error))
+      .catch(() => alert('Algo inesperado ocorreu'))
   }
 
   const { isShown, toggle } = useModal()

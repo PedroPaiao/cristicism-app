@@ -5,3 +5,9 @@ export const StarIconWrapper = styled.div`
   height: 1.6em;
   cursor: pointer;
 `
+
+export const IconWrapper = styled.div`
+  position: relative;
+  right: 10px;
+  cursor: pointer;
+`
