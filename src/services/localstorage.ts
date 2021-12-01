@@ -3,8 +3,6 @@ const getLocalStorage = () => {
     return null
   }
   const result = JSON.parse(localStorage.getItem('user'))
-  // console.log('type:  ', typeof result)
-  // console.log('result:  ', result)
   return result
 }
 

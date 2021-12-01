@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { FunctionComponent } from 'react'
 import { GoMarkGithub } from 'react-icons/go'
+import getLocalStorage from '../services/localstorage'
 import {
   Footer,
   SocialList,
@@ -7,8 +8,10 @@ import {
   SocialItemContent
 } from '../styles/components/Footer.style'
 
-export default function MainFooter(): JSX.Element {
-  return (
+const userLoggedIn = getLocalStorage()
+
+const MainFooter: FunctionComponent<void> = () => {
+  const footer = (
     <Footer>
       <SocialList>
         <SocialItem>
@@ -40,4 +43,7 @@ export default function MainFooter(): JSX.Element {
       </SocialList>
     </Footer>
   )
+  return userLoggedIn ? footer : null
 }
+
+export default MainFooter
