@@ -17,12 +17,12 @@ import { StarsRating } from '../../components/stars/StarsRating'
 
 import { TraillerCard } from '../../components/TraillerCard'
 import { StarsWrapping } from '../../styles/components/traillerCard.style'
-import { createCriticism, getMovie } from '../../services/handleMovies'
+import { getMovie } from '../../services/handleMovies'
 import { MovieCard } from '../../components/MovieCard'
 import { Row } from '../../styles/components/utils/row.style'
 import { BoxCriticism } from '../../components/BoxCriticism'
 import { MovieProps } from '../../interfaces/movie_interface'
-import { getCriticisms } from '../../services/handleCriticism'
+import { createCriticism, getCriticisms } from '../../services/handleCriticism'
 
 const Filmes: React.FC = () => {
   const [idFixed, setId] = useState<number>()
@@ -67,12 +67,14 @@ const Filmes: React.FC = () => {
 
   const doRequest = () => {
     return createCriticism({
-      movieId: movie.id,
+      id: movie.id,
       description: textValue,
-      rate: rating
+      rate: rating.toString()
     })
       .then(() => {
         alert('Critica adicionada com sucesso!')
+        setTextValue('')
+        setRating(0)
         toggle()
         refreshCriticismList()
       })

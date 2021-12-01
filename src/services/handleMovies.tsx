@@ -22,26 +22,6 @@ export const getMovies = async (
   return moviesList
 }
 
-interface CreateCriticismProp {
-  description: string
-  rate: number
-  movieId: number
-}
-
-interface CriticismResponse {
-  data: CreateCriticismProp
-}
-
-export const createCriticism = async (
-  props: CreateCriticismProp
-): Promise<CriticismResponse> => {
-  const api = getAPIClient()
-  return api.post(
-    `http://localhost:5000/movies/${props.movieId}/criticizes`,
-    props
-  )
-}
-
 export const getMovie = async (props: GetMovieProps): Promise<MovieProps> => {
   let movie
   await axios.get(`http://localhost:5000/movies/${props.id}`).then(response => {

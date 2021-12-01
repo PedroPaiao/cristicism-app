@@ -8,6 +8,6 @@ export const StarIconWrapper = styled.div`
 
 export const IconWrapper = styled.div`
   position: relative;
-  right: 10px;
+  right: 12px;
   cursor: pointer;
 `

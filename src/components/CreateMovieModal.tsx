@@ -22,6 +22,11 @@ export const Modal: FunctionComponent<ModalProps> = ({
   modalContent,
   headerText
 }) => {
+  const clear = () => {
+    headerText = ''
+    modalContent = null
+    hide()
+  }
   const modal = (
     <React.Fragment>
       <Backdrop />
@@ -29,7 +34,7 @@ export const Modal: FunctionComponent<ModalProps> = ({
         <StyledModal>
           <Header>
             <HeaderText>{headerText}</HeaderText>
-            <CloseButton onClick={hide}>X</CloseButton>
+            <CloseButton onClick={clear}>(X)</CloseButton>
           </Header>
           <Content>{modalContent}</Content>
         </StyledModal>

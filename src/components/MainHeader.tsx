@@ -9,7 +9,6 @@ import {
   Logo,
   Title,
   BoxLinks,
-  SearchBar,
   UserInfo
 } from '../styles/components/header.style'
 import Logout from './Logout'
@@ -32,9 +31,7 @@ export default function MainHeader(): JSX.Element {
         </BoxTitle>
         <BoxLinks>
           <a href="/movies">Filmes</a>
-          <a href="#">Criticas</a>
-          <SearchBar placeholder="Encontre um filme"></SearchBar>
-          <BsSearch />
+          <a href="/my">Minhas Criticas</a>
         </BoxLinks>
         <UserInfo>
           <p>Olá, {userLoggedIn?.name}</p>
