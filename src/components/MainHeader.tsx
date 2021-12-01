@@ -1,16 +1,23 @@
 import React from 'react'
-import { BsSearch } from 'react-icons/bs'
+import { BsFillCaretDownFill, BsSearch } from 'react-icons/bs'
 import { checkClass } from '../services/checkClass'
+import getLocalStorage from '../services/localstorage'
+import { useModal } from '../services/useModal'
 import {
   Header,
   BoxTitle,
   Logo,
   Title,
   BoxLinks,
-  SearchBar
+  SearchBar,
+  UserInfo
 } from '../styles/components/header.style'
+import Logout from './Logout'
+
+const userLoggedIn = getLocalStorage()
 
 export default function MainHeader(): JSX.Element {
+  const { isShown, toggle } = useModal()
   checkClass()
   return (
     <Header>
@@ -28,6 +35,13 @@ export default function MainHeader(): JSX.Element {
         <SearchBar placeholder="Encontre um filme"></SearchBar>
         <BsSearch />
       </BoxLinks>
+      {userLoggedIn ? (
+        <UserInfo>
+          <p>Olá, {userLoggedIn?.name}</p>
+          <BsFillCaretDownFill onClick={toggle} />
+          <Logout isShown={isShown} />
+        </UserInfo>
+      ) : null}
     </Header>
   )
 }

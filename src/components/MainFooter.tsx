@@ -33,16 +33,6 @@ export default function MainFooter(): JSX.Element {
             <GoMarkGithub /> PedroPaiao
           </SocialItemContent>
         </SocialItem>
-        <SocialItem>
-          <SocialItemContent href="https://github.com/MateusZamecki">
-            <GoMarkGithub /> MateusZamecki
-          </SocialItemContent>
-        </SocialItem>
-        <SocialItem>
-          <SocialItemContent href="https://github.com/altair-roberto">
-            <GoMarkGithub /> altair-roberto
-          </SocialItemContent>
-        </SocialItem>
       </SocialList>
       <SocialList>
         <span>Copyrigth</span> &copy; 2021, Criticism-App, todos os direitos
