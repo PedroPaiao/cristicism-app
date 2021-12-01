@@ -2,6 +2,7 @@ import { GetServerSideProps } from 'next'
 import { parseCookies } from 'nookies'
 import React from 'react'
 import LoginForm from '../components/LoginForm'
+import getLocalStorage from '../services/localstorage'
 
 const Login: React.FC = () => {
   return (
@@ -20,8 +21,9 @@ export default Login
 
 export const getServerSideProps: GetServerSideProps = async ctx => {
   const { 'nextauth-token': cookie } = parseCookies(ctx)
+  const userLoggedIn = getLocalStorage()
 
-  if (cookie) {
+  if (cookie || userLoggedIn) {
     return {
       redirect: {
         destination: '/',

@@ -1,5 +1,8 @@
+import { GetServerSideProps } from 'next'
+import { parseCookies } from 'nookies'
 import React from 'react'
 import RegisterForm from '../components/RegisterForm'
+import getLocalStorage from '../services/localstorage'
 
 const Register: React.FC = () => {
   return (
@@ -15,3 +18,21 @@ const Register: React.FC = () => {
   )
 }
 export default Register
+
+export const getServerSideProps: GetServerSideProps = async ctx => {
+  const { 'nextauth-token': cookie } = parseCookies(ctx)
+  const userLoggedIn = getLocalStorage()
+
+  if (cookie || userLoggedIn) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false
+      }
+    }
+  }
+
+  return {
+    props: {}
+  }
+}
