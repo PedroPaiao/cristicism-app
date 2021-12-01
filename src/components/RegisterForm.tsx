@@ -1,7 +1,7 @@
+import Router from 'next/router'
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { api } from '../services/api'
-import { signIn } from '../services/auth'
 import { FormWrapper } from '../styles/components/form.style'
 
 interface RegisterData {
@@ -15,8 +15,8 @@ export default function RegisterForm(): JSX.Element {
   const { register, handleSubmit } = useForm<RegisterData>()
 
   async function handleRegister(data: RegisterData) {
-    await api.post('/users', data).then(response => {
-      signIn(response.data)
+    await api.post('/users', data).then(() => {
+      Router.push('/login')
     })
   }
 
@@ -28,7 +28,13 @@ export default function RegisterForm(): JSX.Element {
           <div className="form-group">
             <label htmlFor="name">Nome:</label>
             <br />
-            <input {...register('name')} type="text" name="name" id="name" />
+            <input
+              {...register('name')}
+              type="text"
+              name="name"
+              id="name"
+              required={true}
+            />
           </div>
           <div className="form-group">
             <label htmlFor="email">Email:</label>
@@ -38,6 +44,7 @@ export default function RegisterForm(): JSX.Element {
               type="email"
               name="email"
               id="email"
+              required={true}
             />
           </div>
 
@@ -49,6 +56,7 @@ export default function RegisterForm(): JSX.Element {
               type="password"
               name="password"
               id="password"
+              required={true}
             />
           </div>
           <div className="form-group">
@@ -59,6 +67,7 @@ export default function RegisterForm(): JSX.Element {
               type="password"
               name="passwordconfirm"
               id="passwordconfirm"
+              required={true}
             />
           </div>
           <input type="submit" value="Cadastrar" />

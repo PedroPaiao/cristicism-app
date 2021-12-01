@@ -39,6 +39,7 @@ export async function signIn({ email, password }: SignInData): Promise<User> {
     localStorage.setItem('user', JSON.stringify(user))
 
     Router.push('/')
+    window.location.reload(true)
     return user
   } catch (error) {
     alert(error)

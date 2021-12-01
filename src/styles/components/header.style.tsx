@@ -91,3 +91,19 @@ export const SearchBar = styled.input`
     outline: unset;
   }
 `
+export const UserInfo = styled.div`
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  p {
+    margin: 0;
+    font-weight: 600;
+  }
+
+  svg {
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 6px;
+  }
+`
